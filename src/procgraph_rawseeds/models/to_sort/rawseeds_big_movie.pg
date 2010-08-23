@@ -2,7 +2,7 @@
 """ Creates a big movie file displaying all data """
 config logdir "Rawseeds log directory"
 
-import procgraph.components.rawseeds 
+import procgraph_rawseeds
 import procgraph.components.cv 
 import procgraph.components.pil
 

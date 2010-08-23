@@ -1,5 +1,5 @@
 --- model rawseeds_display_all
-import procgraph.components.rawseeds 
+import procgraph_rawseeds
 import procgraph.components.cv 
 
 

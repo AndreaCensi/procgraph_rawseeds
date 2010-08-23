@@ -6,7 +6,7 @@
 """ Reads the GPS log to check that it does not contain errors. """
 config log "Rawseeds GPS log file (.csv or .csv.bz2)"
 
-import procgraph.components.rawseeds  
+import procgraph_rawseeds
  
 |RawseedsGPS file=$log|
 
@@ -16,7 +16,7 @@ import procgraph.components.rawseeds
 """ Reads the whole log to check that it does not contain errors. """
 config log "Rawseeds Sick log file (.csv or .csv.bz2)."
 
-import procgraph.components.rawseeds  
+import procgraph_rawseeds
  
 |RawseedsRF file=$log|
 
@@ -26,7 +26,7 @@ import procgraph.components.rawseeds
 """ Reads the whole log to check that it does not contain errors. """
 config log "Rawseeds Hokuyo log file (.csv or .csv.bz2)."
 
-import procgraph.components.rawseeds  
+import procgraph_rawseeds
  
 |RawseedsHokuyo file=$log|
 
@@ -36,7 +36,7 @@ import procgraph.components.rawseeds
 """ Reads the whole log to check that it does not contain errors. """
 config dir "Directory containing the images."
 
-import procgraph.components.rawseeds  
+import procgraph_rawseeds
  
 |RawseedsCam dir=$dir|
 

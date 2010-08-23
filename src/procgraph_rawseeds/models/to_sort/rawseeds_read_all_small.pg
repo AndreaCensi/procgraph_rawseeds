@@ -1,8 +1,8 @@
 --- model rawseeds_read_all_small
 """ Reads the whole log to check that it does not contain errors. """
-# config: logdir
+config logdir "Rawseeds log dir"
 
-import procgraph.components.rawseeds  
+import procgraph_rawseeds  
 
 
 hokuyo_front.file = "${logdir}/HOKUYO_FRONT.csv.bz2"

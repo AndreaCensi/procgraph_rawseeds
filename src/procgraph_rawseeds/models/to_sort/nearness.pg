@@ -1,5 +1,5 @@
 --- model test_nearness
-import procgraph.components.rawseeds 
+import procgraph_rawseeds
 import procgraph.components.cv 
 
 #|svs_t:RawseedsCam| --> svs_t_gray --> |gray2rgb| --> |resize width=320 height=240|-> svs_t

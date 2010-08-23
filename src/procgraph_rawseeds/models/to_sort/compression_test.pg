@@ -1,5 +1,6 @@
 --- model compression_test
-import procgraph.components.rawseeds
+import procgraph_rawseeds
+
 
 frontal.dir = "${logdir}/FRONTAL"
 

@@ -1,5 +1,5 @@
 --- model test_pose2commands
-import procgraph.components.rawseeds
+import procgraph_rawseeds
 
 |odometry:RawseedsOdo file=$log| 
 

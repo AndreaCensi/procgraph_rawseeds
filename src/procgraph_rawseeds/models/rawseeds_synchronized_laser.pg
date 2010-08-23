@@ -5,7 +5,7 @@ config fps = 10               "fps limit on the data. Hokuyo is 10, Sick is ? na
 config hokuyo_downsample = 4  "Downsampling for Hokuyo (resolution is 676/1024 rays). "
 # output y                      "Synchronized data. Order: HF,HR,SF,SR"
 
-import procgraph.components.rawseeds  
+import procgraph_rawseeds
 
 hokuyo_front.file = "${logdir}/HOKUYO_FRONT.csv.bz2"
  hokuyo_rear.file = "${logdir}/HOKUYO_REAR.csv.bz2"

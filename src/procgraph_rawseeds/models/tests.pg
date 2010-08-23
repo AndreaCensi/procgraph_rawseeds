@@ -1,11 +1,11 @@
 --- model rawseedscam2der2video
-import procgraph.components.rawseeds 
+import procgraph_rawseeds
 import procgraph.components.cv
 
 |RawseedsCam dir=$log|  --> |derivative| --> |posneg|  -->  |mencoder file=$video|
 
 --- model rawseedscam2con2der2video
-import procgraph.components.rawseeds 
+import procgraph_rawseeds
 import procgraph.components.cv
 
 |RawseedsCam dir=$log|--> rgb
@@ -15,7 +15,7 @@ rgb --> |grayscale| --> |contrast| -> y
 y --> |derivative| --> |posneg|  -->  |mencoder file=$video|
 
 --- model rawseedscam2gray2der2video
-import procgraph.components.rawseeds 
+import procgraph_rawseeds
 import procgraph.components.cv
 
 |RawseedsCam dir=$log|--> rgb
@@ -25,7 +25,7 @@ rgb --> |grayscale| -->   y
 y --> |derivative| --> |posneg|  -->  |mencoder file=$video|
 
 --- model testing_resize
-import procgraph.components.rawseeds 
+import procgraph_rawseeds
 import procgraph.components.cv
 
 |RawseedsCam dir=$log|--> rgb
@@ -33,7 +33,7 @@ import procgraph.components.cv
 rgb --> |resize width=100 height=100| --> |grayscale| -> y
 
 y --> |derivative| --> |posneg|  -->  |mencoder file=$video|
---- model rawseedscam2video
-import procgraph.components.rawseeds 
 
+--- model rawseedscam2video
+import procgraph_rawseeds
 |RawseedsCam dir=$log|  --> y -->  |mencoder file=$video|

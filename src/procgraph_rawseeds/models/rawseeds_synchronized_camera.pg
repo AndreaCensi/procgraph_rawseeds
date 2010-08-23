@@ -1,8 +1,8 @@
 --- model rawseeds_synchronized_camera
 """ Outputs the syncrhonized data of 3 cameras (omnidirectional, )"""
 config logdir "Rawseeds log directory"
-
-import procgraph.components.rawseeds 
+ 
+import procgraph_rawseeds
 import procgraph.components.cv 
 import procgraph.components.pil
  

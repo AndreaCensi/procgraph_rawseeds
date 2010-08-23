@@ -1,5 +1,8 @@
 --- model rawseeds_read_all
-import procgraph.components.rawseeds 
+''' A model that reads all data from a Rawseeds log, to check it can be read correctly. '''
+config logdir "Rawseeds log dir"
+
+import procgraph_rawseeds
 
 hokuyo_front.file = "${logdir}/HOKUYO_FRONT.csv.bz2"
  hokuyo_rear.file = "${logdir}/HOKUYO_REAR.csv.bz2"
