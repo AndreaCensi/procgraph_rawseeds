@@ -1,0 +1,81 @@
+--- model rawseeds_big_movie
+""" Creates a big movie file displaying all data """
+config logdir "Rawseeds log directory"
+
+import procgraph.components.rawseeds 
+import procgraph.components.cv 
+import procgraph.components.pil
+
+
+hokuyo_front.file = "${logdir}/HOKUYO_FRONT.csv.bz2"
+ hokuyo_rear.file = "${logdir}/HOKUYO_REAR.csv.bz2"
+  sick_front.file = "${logdir}/SICK_FRONT.csv.bz2"
+   sick_rear.file = "${logdir}/SICK_REAR.csv.bz2"
+
+       svs_t.dir = "${logdir}/SVS_T"
+       svs_r.dir = "${logdir}/SVS_R"
+       svs_l.dir = "${logdir}/SVS_L"
+        omni.dir = "${logdir}/OMNI"
+     frontal.dir = "${logdir}/FRONTAL"
+
+  odometry.file = "${logdir}/ODOMETRY_XYT.csv.bz2"
+
+             out = "${logdir}/out/big_movie/big_movie.avi"
+
+######## Cameras
+|svs_t:RawseedsCam| --> |svs_pipeline| --> svs_t
+|svs_r:RawseedsCam| --> |svs_pipeline| --> svs_r
+|svs_l:RawseedsCam| --> |svs_pipeline| --> svs_l
+svs_t, svs_r, svs_l --> |sync| -> |grid cols=1| --> display_svs
+|frontal:RawseedsCam| --> |resize width=320 height=240| --> frontal
+   |omni:RawseedsCam| --> |resize width=400 height=400| --> omni
+
+######## Range finders
+# cameras are 15 fps, so we limit rangefinder as well
+limit = 15
+
+|hokuyo_front:RawseedsHokuyo| --> |fps_data_limit fps=$limit|--> |hf:rf_display max=6 title=hokuyo_front| --> hokuyo_front
+| hokuyo_rear:RawseedsHokuyo| --> |fps_data_limit fps=$limit|--> |hr:rf_display max=6 title=hokuyo_rear| --> hokuyo_rear
+|  sick_front:RawseedsRF|     --> |fps_data_limit fps=$limit|--> |sf:rf_display max=81 title=sick_front| --> sick_front
+|   sick_rear:RawseedsRF|     --> |fps_data_limit fps=$limit|--> |sr:rf_display max=81 title=sick_rear| --> sick_rear
+hokuyo_rear, hokuyo_front, sick_front, sick_rear --> |sync| --> |grid cols=2| --> display_laser
+
+######## Odometry
+|odometry:RawseedsOdo| 
+odometry.pose --> |fps_data_limit fps=$limit|--> |pose2commands|  --> commands  
+    commands --> |historyt interval=2| --> commands_history --> |plot width=320 height=160| --> display_odometry
+#    commands_history --> |take indices=0| --> lvel_history
+#    commands_history --> |take indices=2| --> avel_history
+    
+#vel_history, avel_history --> |sync| --> |plot width=320 height=160| --> display_odometry
+
+
+
+# synchronize everything to the frontal camera
+#frontal, display_svs, omni, display_laser, display_odometry --> |S:sync|
+frontal, display_svs, omni, display_laser, display_odometry --> |S:fps_data_limit fps=30|
+
+# compose everything together
+S.display_svs, S.omni, S.frontal, S.display_laser, S.display_odometry --> |compose width=1280 height=768|  --> rgb
+    compose.positions = {display_svs: [0,0], omni: [240,0], frontal: [240,400], display_laser: [640,0], display_odometry:[640,320]}
+
+# encode everything
+rgb --> |mencoder file=$out fps=30|
+
+
+# coordinates for video
+
+#text.texts = [  {string: "raw image", position: [10,10], size:20, halign: left, color: black, bg: white  }, {string: "processed image", position: [330,10], size:20, halign: left, color: "#ff00ff", bg: white  }]
+
+
+--- model svs_pipeline
+""" Pipeline for SVS data"""
+w = 240
+h = 180
+|input name=cam| --> |gray2rgb| -->  |resize width=$w height=$h| --> |output name=rgb|
+
+--- model rf_display
+""" Makes a plot of range finder data"""
+config title "title for the plot"
+config max "Maximum value for the y axis"
+|input name=y|  -> |plot width=320 height=160 title=$title y_max=$max y_min=0| --> |output name=display_laser|

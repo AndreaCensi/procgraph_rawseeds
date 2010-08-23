@@ -1,0 +1,34 @@
+--- model rawseeds_read_all
+import procgraph.components.rawseeds 
+
+hokuyo_front.file = "${logdir}/HOKUYO_FRONT.csv.bz2"
+ hokuyo_rear.file = "${logdir}/HOKUYO_REAR.csv.bz2"
+  sick_front.file = "${logdir}/SICK_FRONT.csv.bz2"
+   sick_rear.file = "${logdir}/SICK_REAR.csv.bz2"
+
+       svs_t.dir = "${logdir}/SVS_T"
+       svs_r.dir = "${logdir}/SVS_R"
+       svs_l.dir = "${logdir}/SVS_L"
+        omni.dir = "${logdir}/OMNI"
+     frontal.dir = "${logdir}/FRONTAL"
+
+  odometry.file = "${logdir}/ODOMETRY_XYT.csv.bz2"
+
+             out = "${logdir}/rawseeds_big_movie.avi"
+
+######## Cameras
+|svs_t:RawseedsCam|
+|svs_r:RawseedsCam|
+|svs_l:RawseedsCam|
+|frontal:RawseedsCam| 
+   |omni:RawseedsCam| 
+
+######## Range finders
+|hokuyo_front:RawseedsHokuyo| 
+| hokuyo_rear:RawseedsHokuyo| 
+|  sick_front:RawseedsRF|     
+|   sick_rear:RawseedsRF|     
+
+######## Odometry
+|odometry:RawseedsOdo| 
+ 

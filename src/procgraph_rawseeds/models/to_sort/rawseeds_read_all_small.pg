@@ -1,0 +1,18 @@
+--- model rawseeds_read_all_small
+""" Reads the whole log to check that it does not contain errors. """
+# config: logdir
+
+import procgraph.components.rawseeds  
+
+
+hokuyo_front.file = "${logdir}/HOKUYO_FRONT.csv.bz2"
+ hokuyo_rear.file = "${logdir}/HOKUYO_REAR.csv.bz2"
+  sick_front.file = "${logdir}/SICK_FRONT.csv.bz2"
+   sick_rear.file = "${logdir}/SICK_REAR.csv.bz2"
+    odometry.file = "${logdir}/ODOMETRY_XYT.csv.bz2"
+
+|hokuyo_front:RawseedsHokuyo| 
+| hokuyo_rear:RawseedsHokuyo| 
+|  sick_front:RawseedsRF|     
+|   sick_rear:RawseedsRF|     
+|odometry:RawseedsOdo| 

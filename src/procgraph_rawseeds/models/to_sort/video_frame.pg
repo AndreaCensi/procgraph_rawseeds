@@ -1,0 +1,24 @@
+# Testing some filters
+# Needs log=... on the command line
+--- model master
+
+|RawseedsCam dir=$log|  --> y  --> |grayscale| --> gray -> |expectation| --> |scale| --> Ey
+
+y -> |contrast| -> yc -> |expectation| -> |scale| -> Eyc
+
+yc -> |scale| -> yc_rgb
+
+y, Ey, yc_rgb[yc], Eyc --> |compose| --> |text| --> rgb
+
+
+rgb --> |mencoder file=$out|
+
+
+# coordinates for video
+compose.width = 640
+compose.height = 480 
+compose.positions = {y: [0,0], yc: [0,240], Ey: [320,0],  Eyc: [320,240]}
+#compose.positions = {y: [0,0],  Ey: [320,0]}
+
+text.texts = [  {string: "raw image", position: [10,10], size:20, halign: left, color: black, bg: white  }, {string: "processed image", position: [330,10], size:20, halign: left, color: "#ff00ff", bg: white  }]
+

@@ -1,0 +1,46 @@
+--- model test_nearness
+import procgraph.components.rawseeds 
+import procgraph.components.cv 
+
+#|svs_t:RawseedsCam| --> svs_t_gray --> |gray2rgb| --> |resize width=320 height=240|-> svs_t
+|svs_r:RawseedsCam| --> |gray_pipeline| --> svs_r 
+|svs_l:RawseedsCam| --> |gray_pipeline| --> svs_l
+
+
+# |frontal:RawseedsCam| --> |resize width=320 height=240| --> frontal
+# |omni:RawseedsCam|-> |resize width=320 height=320| --> omni
+# 
+# |hokuyo_front:RawseedsHokuyo| --> hokuyo_front
+# | hokuyo_rear:RawseedsHokuyo| --> hokuyo_rear
+# |  sick_front:RawseedsRF| --> sick_front
+# |   sick_rear:RawseedsRF| --> sick_rear
+
+# display all laser data together
+# hokuyo_rear, hokuyo_front, sick_front, sick_rear --> |sync| -->  |join| --> y --> |rgbplot width=640 height=240| --> display_laser
+
+# synchronize everything to the frontal camera
+# frontal, svs_t, svs_r, svs_l, omni, display_laser --> |S:sync|
+svs_r, svs_l  --> |S:sync|
+
+#S.svs_l, S.svs_r -> |-| -> |abs| -> |scale| -> e_rl
+S.svs_l, S.svs_r -> |-| -> |abs|  -> e_rl
+
+S.svs_l -> |scale| -> img_a
+S.svs_r-> |scale| -> img_b
+e_rl -> |scale| -> e_rl_rgb 
+
+# compose everything together
+img_a[A], img_b[B], e_rl_rgb[E] --> |compose width=640 height=480| --> |text| --> rgb
+    compose.positions = {A: [0,0], B: [0,240], E: [320,0] }
+    
+rgb --> |mencoder file=$out|
+
+
+# coordinates for video
+text.texts = []
+#text.texts = [  {string: "raw image", position: [10,10], size:20, halign: left, color: black, bg: white  }, {string: "processed image", position: [330,10], size:20, halign: left, color: "#ff00ff", bg: white  }]
+
+--- model gray_pipeline
+|input name=g| -> |resize width=320 height=240| --> |rgb2gray| --> |smooth gaussian_std=2| --> |output name=y|
+
+

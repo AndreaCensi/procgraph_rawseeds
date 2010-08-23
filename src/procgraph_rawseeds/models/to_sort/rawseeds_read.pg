@@ -1,0 +1,43 @@
+# A bunch of models that just read the logs from Rawseeds.
+# These are useful for checking that the log can be read without errors.
+
+
+------------------------------- model rawseeds_read_gps
+""" Reads the GPS log to check that it does not contain errors. """
+config log "Rawseeds GPS log file (.csv or .csv.bz2)"
+
+import procgraph.components.rawseeds  
+ 
+|RawseedsGPS file=$log|
+
+
+
+------------------------------- model rawseeds_read_sick
+""" Reads the whole log to check that it does not contain errors. """
+config log "Rawseeds Sick log file (.csv or .csv.bz2)."
+
+import procgraph.components.rawseeds  
+ 
+|RawseedsRF file=$log|
+
+
+
+------------------------------- model rawseeds_read_hokuyo
+""" Reads the whole log to check that it does not contain errors. """
+config log "Rawseeds Hokuyo log file (.csv or .csv.bz2)."
+
+import procgraph.components.rawseeds  
+ 
+|RawseedsHokuyo file=$log|
+
+
+
+------------------------------- model rawseeds_read_camera
+""" Reads the whole log to check that it does not contain errors. """
+config dir "Directory containing the images."
+
+import procgraph.components.rawseeds  
+ 
+|RawseedsCam dir=$dir|
+
+

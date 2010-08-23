@@ -1,0 +1,25 @@
+# Testing some filters
+# Needs log=... on the command line
+--- model test_dynamics
+
+|RawseedsCam dir=$log|  --> y
+
+    # display the rgb
+    # y  --> |identity|  --> yf
+    
+    # display grayscale
+    # y  --> |grayscale|  --> yf
+
+    # display contrast
+    # y  --> |contrast|  --> yf
+
+    # display contrast + smooth
+    y  --> |contrast|  --> |smooth| --> yf
+    
+    
+    yf -> |expectation| -> display
+    
+    
+display  --> |imshow|
+
+

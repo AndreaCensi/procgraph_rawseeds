@@ -1,0 +1,31 @@
+--- model test_pose2commands
+import procgraph.components.rawseeds
+
+|odometry:RawseedsOdo file=$log| 
+
+odometry.pose --> |commands:pose2commands|
+
+
+ odometry.x --> |hx:history interval=1|
+ commands.vx --> |hvx:history|
+ 
+hvx.x --> |plot2:rgbplot| --> plot2
+
+hx.x --> |plot1:rgbplot| --> plot1
+
+# odometry.x --> |hx:history interval=1| --> t, x --> |plot1:rgbplot| --> plot1
+
+#hx.x --> |plot1:plot| 
+ 
+    plot1.title = "plot1"
+    plot1.xlabel = "time (s)"
+    plot1.ylabel = "distance (m)"
+    plot1.legend = ["odometry x"]    
+    
+    plot2.title = "plot2"
+ 
+
+
+plot1, plot2 --> |grid|  --> |sieve n=$decimate|--> |mencoder file=$out|
+
+decimate = 5 

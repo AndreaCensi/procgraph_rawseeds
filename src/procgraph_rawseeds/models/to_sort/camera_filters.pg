@@ -1,0 +1,24 @@
+# Testing some filters
+# Needs log=... on the command line
+--- model camera_filters
+
+|RawseedsCam dir=$log|  --> y
+
+    # display the rgb
+    # y  --> |identity|  --> display
+    
+    # display grayscale
+    # y  --> |grayscale|  --> display
+
+    # display contrast
+    # y  --> |contrast|  --> display
+
+    # display contrast + smooth
+    y  --> |contrast|  --> |smooth| --> display
+    
+    
+display  --> |imshow|
+
+
+
+ 

@@ -1,0 +1,25 @@
+--- model rawseeds_synchronized_laser
+""" This model reads and synchronizes the 4 laser sources in a Rawseeds log. """
+config logdir                 "Rawseeds log directory containing HOKUYO_FRONT.csv.bz2, etc."
+config fps = 10               "fps limit on the data. Hokuyo is 10, Sick is ? natively."
+config hokuyo_downsample = 4  "Downsampling for Hokuyo (resolution is 676/1024 rays). "
+# output y                      "Synchronized data. Order: HF,HR,SF,SR"
+
+import procgraph.components.rawseeds  
+
+hokuyo_front.file = "${logdir}/HOKUYO_FRONT.csv.bz2"
+ hokuyo_rear.file = "${logdir}/HOKUYO_REAR.csv.bz2"
+  sick_front.file = "${logdir}/SICK_FRONT.csv.bz2"
+   sick_rear.file = "${logdir}/SICK_REAR.csv.bz2"
+   
+|hokuyo_front:RawseedsHokuyo| --> |fps_data_limit fps=$fps| --> |select every=$hokuyo_downsample| --> hokuyo_front
+| hokuyo_rear:RawseedsHokuyo| --> |fps_data_limit fps=$fps| --> |select every=$hokuyo_downsample| --> hokuyo_rear
+|  sick_front:RawseedsRF|     --> |fps_data_limit fps=$fps| --> sick_front 
+|   sick_rear:RawseedsRF|     --> |fps_data_limit fps=$fps| --> sick_rear
+
+
+
+hokuyo_front, hokuyo_rear, sick_front, sick_rear --> |sync| --> |join| --> y
+
+y --> |output name=y|
+

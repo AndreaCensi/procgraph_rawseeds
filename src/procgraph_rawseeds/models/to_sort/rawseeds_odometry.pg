@@ -1,0 +1,14 @@
+# displays the output of a rawseed log file
+# Needs logreader.file=... on the command line
+# $ pg  rawseed_rf_display.pg  log=${PBENV_DATA}/Bicocca_2009-02-25a-SICK_FRONT.csv 
+
+|odometry:RawseedsOdo file=$log| 
+
+# odometry.pose -> |print|
+
+odometry.x -> |history|
+
+history.x -> |sieve n=10| -> |wait n=200| -> |rgbplot| -> rgb
+
+
+rgb -> |mencoder|

@@ -1,0 +1,15 @@
+# displays the output of a rawseed log file
+# Needs log=... on the command line
+# $ pg  camera_display.pg log=${PBENV_DATA}/FRONTAL
+
+|RawseedsCam dir=$log|  --> y
+
+    # display the rgb
+    # y  --> |identity|  --> display
+    
+    # display grayscale
+    y  --> |grayscale|  --> display
+    
+    
+display  --> |imshow|
+

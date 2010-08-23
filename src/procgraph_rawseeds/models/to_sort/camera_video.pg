@@ -1,0 +1,9 @@
+# Testing some filters
+# Needs log=... on the command line
+--- model camera_video
+import procgraph.components.rawseeds 
+
+
+|RawseedsCam dir=$log|  --> y -->  |mencoder file=$video|
+
+#|RawseedsCam dir=$log|  --> y --> |grayscale| --> |expectation| --> |scale| -->  |mencoder|

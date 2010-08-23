@@ -1,0 +1,5 @@
+# displays the output of a rawseed log file
+# Needs logreader.file=... on the command line
+# $ pg  rawseed_rf_display.pg RawseedsRF.file=${PBENV_DATA}/Bicocca_2009-02-25a-SICK_FRONT.csv 
+
+|RawseedsRF| -> y -> |plot|

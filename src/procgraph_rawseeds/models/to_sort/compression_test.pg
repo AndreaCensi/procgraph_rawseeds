@@ -1,0 +1,6 @@
+--- model compression_test
+import procgraph.components.rawseeds
+
+frontal.dir = "${logdir}/FRONTAL"
+
+|frontal:RawseedsCam|  --> |SimpleCompression file=$out|
