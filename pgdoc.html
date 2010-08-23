@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Summary &mdash; procgraph_rawseeds v0.1 documentation</title>
+    <link rel="stylesheet" href="static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
+    <script type="text/javascript" src="static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="procgraph_rawseeds v0.1 documentation" href="index.html" />
+	 
+<!--	
+   <style type="text/css">
+   .pagetoc { 
+	max-width: 30%;
+	display: block; float: right; margin-left: 3em; background-color: white; border: solid 2px gray;}
+   </style>
+-->
+<style type="text/css">
+
+div.input, div.output, div.configuration { margin-top: 1em; padding-right: 2em;}
+div.input, div.output, div.configuration {max-width: 30%; float:left; display: block }
+div.input:before{ content: "Input"; font-weight: bold; }
+div.output:before{ content: "Output"; font-weight: bold; }
+div.configuration:before{ content: "Configuration"; font-weight: bold; }
+
+div.implementation { clear: left; }
+div.implementation:before{ content: "Implementation notes"; font-weight: bold; }
+
+h2,h3 { clear: left;}
+
+h1 { background-color: #ddf; padding: 1em;}
+h3 { background-color: #ddd; padding: 5px;}
+</style>
+
+   <style type="text/css">
+
+
+	div.col1 {
+		display: block;
+		float: left;
+	}
+
+	div.col2 {
+		margin-left: 3em;
+		display: block;
+		float: left;
+	}
+
+	div.after {
+		clear: left;
+	}
+/*
+	div.twitterbadge {
+		float: right;
+		margin-left: 2em;
+	}
+
+	img.bigpicture {
+		margin: 1em;
+		max-width: 90%;
+	}
+	
+	.header h2 {
+		color: #990033 !important;
+		font-size: 200% !important;
+	}
+	.content {
+
+	}
+	.content p, .content p {
+		max-width: 40em;
+	}
+	
+	.content h1 { 
+		display: none;
+	}
+	h2, h3 {  
+		border-bottom: solid 2px orange;
+		max-width: 40em;
+	}
+	
+	h1 { font-size: 200%;}
+	h2 { font-size: 150%;}
+	h3 { font-size: 125%;}
+	
+		
+	pre{
+		max-width: 60em;
+	
+	}
+	
+	body {  font-size: 120%; font-family: "Droid Serif", serif; }
+	
+	h1,h2,h3 { 
+  font-family: "Lobster", serif;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: 6px 6px 6px #ccc;
+}
+
+div.header h2 {
+    font-size: 1.3em;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-transform: none !important;
+    color: #aaa;
+    border: 0;
+    margin-top: -3px;
+    padding: 0;
+}
+
+.col1 strong, .col2 strong { 
+	font-family: "Lobster", serif; color: #990033;text-shadow: 6px 6px 6px #ccc;
+	font-size: 160%;
+ }
+
+.compmake-brand {
+	font-family: "Lobster", serif;
+	font-size: 120%;
+}
+
+a.reference em, a.external em {
+	font-style: normal !important;
+}
+*/
+</style>
+
+<link  href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" >
+<link  href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css" >
+<!--<link  href="http://fonts.googleapis.com/css?family=Cardo" rel="stylesheet" type="text/css" >-->
+
+<!--
+<script src="http://yui.yahooapis.com/3.1.0/build/yui/yui-min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.1.0/build/cssreset/reset-context-min.css"></link>
+<script src="http://www.remarkbox.com/deploy/remarkbox-min.js"></script>
+<script type="text/javascript">
+YUI().use('remarkbox', function (Y) {
+Y.Remarkbox.remarkson.elements("p,code");
+Y.Remarkbox.remarkson.ids("para,tnt");
+Y.Remarkbox.remarkson.classes("rmkit,contentfeedback");
+Y.Remarkbox.remarktype.pointer("right");
+Y.Remarkbox.remarktype.strongcolor("#ECFCE8");
+Y.Remarkbox.remarktype.strongcolortext("#000000");
+Y.Remarkbox.remarktype.lightcolor("#FF8040");
+Y.Remarkbox.remarktype.lightcolortext("#800000");
+Y.Remarkbox.remarktype.alwaysvisible("true");
+Y.Remarkbox.remarktype.offsetx("-3em");
+Y.Remarkbox.remarktype.offsety("-2em");
+Y.Remarkbox.remarktype.allowanonymous("true");
+Y.Remarkbox.render();
+});
+</script>
+-->
+
+
+
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>procgraph_rawseeds v0.1 documentation</span></a></h1>
+        <h2 class="heading"><span>Summary</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        <a class="uplink" href="main.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="summary">
+<span id="pgdoc-procgraph-rawseeds"></span><h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="#module-procgraph-rawseeds"><em>Module procgraph_rawseeds</em></a></p>
+<p>Routines for reading the data from the Rawseeds project.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="#block-rawseedscam"><em>RawseedsCam</em></a></td>
+<td>This model reads the images of a Rawseed camera log.</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseedscamfiles"><em>RawseedsCamFiles</em></a></td>
+<td>This block reads the filenames for the Rawseeds camera log.</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseedsgps"><em>RawseedsGPS</em></a></td>
+<td>This block reads the GPS log from Rawseeds format.</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseedshokuyo"><em>RawseedsHokuyo</em></a></td>
+<td>This block reads a Hokuyo log in Rawseeds format.</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseedsodo"><em>RawseedsOdo</em></a></td>
+<td>Read an odometry log file in Rawseeds format.</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseedsrf"><em>RawseedsRF</em></a></td>
+<td>This block reads a range-finder log in Rawseeds format.</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-camera-display"><em>camera_display</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-camera-expectation"><em>camera_expectation</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-camera-filters"><em>camera_filters</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-camera-video"><em>camera_video</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-compression-test"><em>compression_test</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-decode"><em>decode</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-gray-pipeline"><em>gray_pipeline</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-master"><em>master</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rangefinder-display"><em>rangefinder_display</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseeds-big-movie"><em>rawseeds_big_movie</em></a></td>
+<td>Creates a big movie file displaying all data</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseeds-display-all"><em>rawseeds_display_all</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseeds-odometry"><em>rawseeds_odometry</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseeds-read-all"><em>rawseeds_read_all</em></a></td>
+<td>A model that reads all data from a Rawseeds log, to check it can be read correctly.</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseeds-read-all-small"><em>rawseeds_read_all_small</em></a></td>
+<td>Reads the whole log to check that it does not contain errors.</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseeds-read-camera"><em>rawseeds_read_camera</em></a></td>
+<td>Reads the whole log to check that it does not contain errors.</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseeds-read-gps"><em>rawseeds_read_gps</em></a></td>
+<td>Reads the GPS log to check that it does not contain errors.</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseeds-read-hokuyo"><em>rawseeds_read_hokuyo</em></a></td>
+<td>Reads the whole log to check that it does not contain errors.</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseeds-read-sick"><em>rawseeds_read_sick</em></a></td>
+<td>Reads the whole log to check that it does not contain errors.</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseeds-synchronized-camera"><em>rawseeds_synchronized_camera</em></a></td>
+<td>Outputs the syncrhonized data of 3 cameras (omnidirectional, )</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseeds-synchronized-camera-test"><em>rawseeds_synchronized_camera_test</em></a></td>
+<td>Tests the rawseeds_synchronized_camera model by writing out a movie.</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseeds-synchronized-laser"><em>rawseeds_synchronized_laser</em></a></td>
+<td>This model reads and synchronizes the 4 laser sources in a Rawseeds log.</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseedscam2con2der2video"><em>rawseedscam2con2der2video</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseedscam2der2video"><em>rawseedscam2der2video</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseedscam2gray2der2video"><em>rawseedscam2gray2der2video</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rawseedscam2video"><em>rawseedscam2video</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-rf-display"><em>rf_display</em></a></td>
+<td>Makes a plot of range finder data</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-svs-pipeline"><em>svs_pipeline</em></a></td>
+<td>Pipeline for SVS data</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-test-dynamics"><em>test_dynamics</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-test-nearness"><em>test_nearness</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-test-pose2commands"><em>test_pose2commands</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-testing-resize"><em>testing_resize</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-transcode"><em>transcode</em></a></td>
+<td>None</td>
+</tr>
+<tr><td><a class="reference internal" href="#block-transcode-filter"><em>transcode_filter</em></a></td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-procgraph-rawseeds">
+<span id="id1"></span><h1>Module <tt class="docutils literal"><span class="pre">procgraph_rawseeds</span></tt><a class="headerlink" href="#module-procgraph-rawseeds" title="Permalink to this headline">¶</a></h1>
+<p>Routines for reading the data from the Rawseeds project.</p>
+<div class="section" id="block-rawseedscam">
+<span id="id2"></span><h2>Block <tt class="docutils literal"><span class="pre">RawseedsCam</span></tt><a class="headerlink" href="#block-rawseedscam" title="Permalink to this headline">¶</a></h2>
+<p>This model reads the images of a Rawseed camera log.</p>
+</div>
+<div class="section" id="block-rawseedscamfiles">
+<span id="id3"></span><h2>Block <tt class="docutils literal"><span class="pre">RawseedsCamFiles</span></tt><a class="headerlink" href="#block-rawseedscamfiles" title="Permalink to this headline">¶</a></h2>
+<p>This block reads the filenames for the Rawseeds camera log.</p>
+</div>
+<div class="section" id="block-rawseedsgps">
+<span id="id4"></span><h2>Block <tt class="docutils literal"><span class="pre">RawseedsGPS</span></tt><a class="headerlink" href="#block-rawseedsgps" title="Permalink to this headline">¶</a></h2>
+<p>This block reads the GPS log from Rawseeds format.</p>
+<p>Example:</p>
+<div class="highlight-python"><pre>1223309581.123667, $GPGGA,143516.80,4530.37118644,N,00909.99763524,E,2,6,1.7,131.984,M,48.022,M,0.8,0000*7
+1223309581.133660, $GPGST,143516.80,0.504,0.238,0.147,54.6,0.212,0.183,0.585*6</pre>
+</div>
+<p>We ignore the GPGST lines for now.</p>
+</div>
+<div class="section" id="block-rawseedshokuyo">
+<span id="id5"></span><h2>Block <tt class="docutils literal"><span class="pre">RawseedsHokuyo</span></tt><a class="headerlink" href="#block-rawseedshokuyo" title="Permalink to this headline">¶</a></h2>
+<p>This block reads a Hokuyo log in Rawseeds format.</p>
+<p>File format:</p>
+<div class="highlight-python"><pre>Timestamp [seconds.microseconds]
+R1..R681* Ranges [m]</pre>
+</div>
+</div>
+<div class="section" id="block-rawseedsodo">
+<span id="id6"></span><h2>Block <tt class="docutils literal"><span class="pre">RawseedsOdo</span></tt><a class="headerlink" href="#block-rawseedsodo" title="Permalink to this headline">¶</a></h2>
+<p>Read an odometry log file in Rawseeds format.</p>
+<p>File format:</p>
+<div class="highlight-python"><pre>Timestamp [seconds.microseconds]
+Rolling Counter [signed 16bit integer]
+TicksRight [ticks]
+TicksLeft [ticks]
+X [m]*
+Y [m]*
+Theta [rad]*</pre>
+</div>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mf">1235561676.443740</span><span class="p">,</span> <span class="mi">3225</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.000</span><span class="p">,</span> <span class="mf">0.000</span><span class="p">,</span> <span class="mf">0.000</span>
+</pre></div>
+</div>
+<p><em>Reference frame:</em> A right handed reference frame is used.
+Y axis is aligned along the front-rear direction and points
+towards the front, X axis is parallel to the wheelbase and points
+towards the right wheel.</p>
+</div>
+<div class="section" id="block-rawseedsrf">
+<span id="id7"></span><h2>Block <tt class="docutils literal"><span class="pre">RawseedsRF</span></tt><a class="headerlink" href="#block-rawseedsrf" title="Permalink to this headline">¶</a></h2>
+<p>This block reads a range-finder log in Rawseeds format.</p>
+<p>File format:</p>
+<div class="highlight-python"><pre>Timestamp [seconds.microseconds]
+# of ranges [unitless]
+Angular offset [1/4 degree]
+R1..R181 Ranges (zero padded to 181 ranges) [m]</pre>
+</div>
+</div>
+<div class="section" id="block-camera-display">
+<span id="id8"></span><h2>Block <tt class="docutils literal"><span class="pre">camera_display</span></tt><a class="headerlink" href="#block-camera-display" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-camera-expectation">
+<span id="id9"></span><h2>Block <tt class="docutils literal"><span class="pre">camera_expectation</span></tt><a class="headerlink" href="#block-camera-expectation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-camera-filters">
+<span id="id10"></span><h2>Block <tt class="docutils literal"><span class="pre">camera_filters</span></tt><a class="headerlink" href="#block-camera-filters" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-camera-video">
+<span id="id11"></span><h2>Block <tt class="docutils literal"><span class="pre">camera_video</span></tt><a class="headerlink" href="#block-camera-video" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-compression-test">
+<span id="id12"></span><h2>Block <tt class="docutils literal"><span class="pre">compression_test</span></tt><a class="headerlink" href="#block-compression-test" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-decode">
+<span id="id13"></span><h2>Block <tt class="docutils literal"><span class="pre">decode</span></tt><a class="headerlink" href="#block-decode" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-gray-pipeline">
+<span id="id14"></span><h2>Block <tt class="docutils literal"><span class="pre">gray_pipeline</span></tt><a class="headerlink" href="#block-gray-pipeline" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-master">
+<span id="id15"></span><h2>Block <tt class="docutils literal"><span class="pre">master</span></tt><a class="headerlink" href="#block-master" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-rangefinder-display">
+<span id="id16"></span><h2>Block <tt class="docutils literal"><span class="pre">rangefinder_display</span></tt><a class="headerlink" href="#block-rangefinder-display" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-rawseeds-big-movie">
+<span id="id17"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_big_movie</span></tt><a class="headerlink" href="#block-rawseeds-big-movie" title="Permalink to this headline">¶</a></h2>
+<p>Creates a big movie file displaying all data</p>
+</div>
+<div class="section" id="block-rawseeds-display-all">
+<span id="id18"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_display_all</span></tt><a class="headerlink" href="#block-rawseeds-display-all" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-rawseeds-odometry">
+<span id="id19"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_odometry</span></tt><a class="headerlink" href="#block-rawseeds-odometry" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-rawseeds-read-all">
+<span id="id20"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_read_all</span></tt><a class="headerlink" href="#block-rawseeds-read-all" title="Permalink to this headline">¶</a></h2>
+<p>A model that reads all data from a Rawseeds log, to check it can be read correctly.</p>
+</div>
+<div class="section" id="block-rawseeds-read-all-small">
+<span id="id21"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_read_all_small</span></tt><a class="headerlink" href="#block-rawseeds-read-all-small" title="Permalink to this headline">¶</a></h2>
+<p>Reads the whole log to check that it does not contain errors.</p>
+</div>
+<div class="section" id="block-rawseeds-read-camera">
+<span id="id22"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_read_camera</span></tt><a class="headerlink" href="#block-rawseeds-read-camera" title="Permalink to this headline">¶</a></h2>
+<p>Reads the whole log to check that it does not contain errors.</p>
+</div>
+<div class="section" id="block-rawseeds-read-gps">
+<span id="id23"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_read_gps</span></tt><a class="headerlink" href="#block-rawseeds-read-gps" title="Permalink to this headline">¶</a></h2>
+<p>Reads the GPS log to check that it does not contain errors.</p>
+</div>
+<div class="section" id="block-rawseeds-read-hokuyo">
+<span id="id24"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_read_hokuyo</span></tt><a class="headerlink" href="#block-rawseeds-read-hokuyo" title="Permalink to this headline">¶</a></h2>
+<p>Reads the whole log to check that it does not contain errors.</p>
+</div>
+<div class="section" id="block-rawseeds-read-sick">
+<span id="id25"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_read_sick</span></tt><a class="headerlink" href="#block-rawseeds-read-sick" title="Permalink to this headline">¶</a></h2>
+<p>Reads the whole log to check that it does not contain errors.</p>
+</div>
+<div class="section" id="block-rawseeds-synchronized-camera">
+<span id="id26"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_synchronized_camera</span></tt><a class="headerlink" href="#block-rawseeds-synchronized-camera" title="Permalink to this headline">¶</a></h2>
+<p>Outputs the syncrhonized data of 3 cameras (omnidirectional, )</p>
+</div>
+<div class="section" id="block-rawseeds-synchronized-camera-test">
+<span id="id27"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_synchronized_camera_test</span></tt><a class="headerlink" href="#block-rawseeds-synchronized-camera-test" title="Permalink to this headline">¶</a></h2>
+<p>Tests the rawseeds_synchronized_camera model by writing out a movie.</p>
+</div>
+<div class="section" id="block-rawseeds-synchronized-laser">
+<span id="id28"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_synchronized_laser</span></tt><a class="headerlink" href="#block-rawseeds-synchronized-laser" title="Permalink to this headline">¶</a></h2>
+<p>This model reads and synchronizes the 4 laser sources in a Rawseeds log.</p>
+</div>
+<div class="section" id="block-rawseedscam2con2der2video">
+<span id="id29"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseedscam2con2der2video</span></tt><a class="headerlink" href="#block-rawseedscam2con2der2video" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-rawseedscam2der2video">
+<span id="id30"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseedscam2der2video</span></tt><a class="headerlink" href="#block-rawseedscam2der2video" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-rawseedscam2gray2der2video">
+<span id="id31"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseedscam2gray2der2video</span></tt><a class="headerlink" href="#block-rawseedscam2gray2der2video" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-rawseedscam2video">
+<span id="id32"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseedscam2video</span></tt><a class="headerlink" href="#block-rawseedscam2video" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-rf-display">
+<span id="id33"></span><h2>Block <tt class="docutils literal"><span class="pre">rf_display</span></tt><a class="headerlink" href="#block-rf-display" title="Permalink to this headline">¶</a></h2>
+<p>Makes a plot of range finder data</p>
+</div>
+<div class="section" id="block-svs-pipeline">
+<span id="id34"></span><h2>Block <tt class="docutils literal"><span class="pre">svs_pipeline</span></tt><a class="headerlink" href="#block-svs-pipeline" title="Permalink to this headline">¶</a></h2>
+<p>Pipeline for SVS data</p>
+</div>
+<div class="section" id="block-test-dynamics">
+<span id="id35"></span><h2>Block <tt class="docutils literal"><span class="pre">test_dynamics</span></tt><a class="headerlink" href="#block-test-dynamics" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-test-nearness">
+<span id="id36"></span><h2>Block <tt class="docutils literal"><span class="pre">test_nearness</span></tt><a class="headerlink" href="#block-test-nearness" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-test-pose2commands">
+<span id="id37"></span><h2>Block <tt class="docutils literal"><span class="pre">test_pose2commands</span></tt><a class="headerlink" href="#block-test-pose2commands" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-testing-resize">
+<span id="id38"></span><h2>Block <tt class="docutils literal"><span class="pre">testing_resize</span></tt><a class="headerlink" href="#block-testing-resize" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-transcode">
+<span id="id39"></span><h2>Block <tt class="docutils literal"><span class="pre">transcode</span></tt><a class="headerlink" href="#block-transcode" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="block-transcode-filter">
+<span id="id40"></span><h2>Block <tt class="docutils literal"><span class="pre">transcode_filter</span></tt><a class="headerlink" href="#block-transcode-filter" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        <a class="uplink" href="main.html">Contents</a>
+        </p>
+
+      </div>
+
+	
+    <div class="footer">
+        &copy; Copyright 2010, Andrea Censi.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.1.
+    </div>
+	
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-155626-7']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+
+
+  </body>
+</html>
