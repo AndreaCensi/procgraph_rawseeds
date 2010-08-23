@@ -449,6 +449,9 @@ R1..R181 Ranges (zero padded to 181 ranges) [m]</pre>
 <div class="section" id="block-rawseeds-synchronized-laser">
 <span id="id28"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_synchronized_laser</span></tt><a class="headerlink" href="#block-rawseeds-synchronized-laser" title="Permalink to this headline">¶</a></h2>
 <p>This model reads and synchronizes the 4 laser sources in a Rawseeds log.</p>
+<p>The order in which they are joined is: <tt class="docutils literal"><span class="pre">hokuyo_front</span></tt>, <tt class="docutils literal"><span class="pre">hokuyo_rear</span></tt>, <tt class="docutils literal"><span class="pre">sick_front</span></tt>, <tt class="docutils literal"><span class="pre">sick_rear</span></tt>.</p>
+<p>The Hokuyo data is downsampled with <a class="reference external" href="http://andreacensi.github.com/procgraph/pgdoc.html#block-select" title="(in procgraph v0.1)"><em>Block select</em></a>.
+All data is limited to 10fps using <a class="reference external" href="http://andreacensi.github.com/procgraph/pgdoc.html#block-fps-data-limit" title="(in procgraph v0.1)"><em>Block fps_data_limit</em></a>.</p>
 </div>
 <div class="section" id="block-rawseedscam2con2der2video">
 <span id="id29"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseedscam2con2der2video</span></tt><a class="headerlink" href="#block-rawseedscam2con2der2video" title="Permalink to this headline">¶</a></h2>

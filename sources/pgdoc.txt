@@ -243,6 +243,12 @@ Block ``rawseeds_synchronized_laser``
 ------------------------------------------------------------
 This model reads and synchronizes the 4 laser sources in a Rawseeds log.
 
+
+The order in which they are joined is: ``hokuyo_front``, ``hokuyo_rear``, ``sick_front``, ``sick_rear``.
+
+The Hokuyo data is downsampled with :ref:`block:select`.
+All data is limited to 10fps using :ref:`block:fps_data_limit`.
+
 .. _`block:rawseedscam2con2der2video`:
 
 Block ``rawseedscam2con2der2video``
