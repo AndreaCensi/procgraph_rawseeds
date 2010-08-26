@@ -26,33 +26,14 @@
     <script type="text/javascript" src="_static/theme_extras.js"></script>
     <link rel="top" title="procgraph_rawseeds v0.1 documentation" href="index.html" />
 	 
-<!--	
-   <style type="text/css">
-   .pagetoc { 
-	max-width: 30%;
-	display: block; float: right; margin-left: 3em; background-color: white; border: solid 2px gray;}
-   </style>
--->
-<style type="text/css">
-
-div.input, div.output, div.configuration { margin-top: 1em; padding-right: 2em;}
-div.input, div.output, div.configuration {max-width: 30%; float:left; display: block }
-div.input:before{ content: "Input"; font-weight: bold; }
-div.output:before{ content: "Output"; font-weight: bold; }
-div.configuration:before{ content: "Configuration"; font-weight: bold; }
-
-div.implementation { clear: left; }
-div.implementation:before{ content: "Implementation notes"; font-weight: bold; }
-
-h2,h3 { clear: left;}
-
-h1 { background-color: #ddf; padding: 1em;}
-h3 { background-color: #ddd; padding: 5px;}
-</style>
+	
+	
 
    <style type="text/css">
-
-
+body {
+	font-size: 16px;
+	font-family: Verdana;
+}
 	div.col1 {
 		display: block;
 		float: left;
@@ -67,108 +48,13 @@ h3 { background-color: #ddd; padding: 5px;}
 	div.after {
 		clear: left;
 	}
-/*
-	div.twitterbadge {
-		float: right;
-		margin-left: 2em;
-	}
-
-	img.bigpicture {
-		margin: 1em;
-		max-width: 90%;
-	}
 	
-	.header h2 {
-		color: #990033 !important;
-		font-size: 200% !important;
-	}
-	.content {
-
-	}
-	.content p, .content p {
-		max-width: 40em;
-	}
-	
-	.content h1 { 
-		display: none;
-	}
-	h2, h3 {  
-		border-bottom: solid 2px orange;
-		max-width: 40em;
-	}
-	
-	h1 { font-size: 200%;}
-	h2 { font-size: 150%;}
-	h3 { font-size: 125%;}
-	
-		
-	pre{
-		max-width: 60em;
-	
-	}
-	
-	body {  font-size: 120%; font-family: "Droid Serif", serif; }
-	
-	h1,h2,h3 { 
-  font-family: "Lobster", serif;
-  font-style: normal;
-  font-weight: 400;
-  text-shadow: 6px 6px 6px #ccc;
-}
-
-div.header h2 {
-    font-size: 1.3em;
-    font-weight: normal;
-    letter-spacing: 1px;
-    text-transform: none !important;
-    color: #aaa;
-    border: 0;
-    margin-top: -3px;
-    padding: 0;
-}
-
-.col1 strong, .col2 strong { 
-	font-family: "Lobster", serif; color: #990033;text-shadow: 6px 6px 6px #ccc;
-	font-size: 160%;
- }
-
-.compmake-brand {
-	font-family: "Lobster", serif;
-	font-size: 120%;
-}
-
-a.reference em, a.external em {
-	font-style: normal !important;
-}
-*/
 </style>
 
 <link  href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" >
 <link  href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css" >
-<!--<link  href="http://fonts.googleapis.com/css?family=Cardo" rel="stylesheet" type="text/css" >-->
 
-<!--
-<script src="http://yui.yahooapis.com/3.1.0/build/yui/yui-min.js"></script>
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.1.0/build/cssreset/reset-context-min.css"></link>
-<script src="http://www.remarkbox.com/deploy/remarkbox-min.js"></script>
-<script type="text/javascript">
-YUI().use('remarkbox', function (Y) {
-Y.Remarkbox.remarkson.elements("p,code");
-Y.Remarkbox.remarkson.ids("para,tnt");
-Y.Remarkbox.remarkson.classes("rmkit,contentfeedback");
-Y.Remarkbox.remarktype.pointer("right");
-Y.Remarkbox.remarktype.strongcolor("#ECFCE8");
-Y.Remarkbox.remarktype.strongcolortext("#000000");
-Y.Remarkbox.remarktype.lightcolor("#FF8040");
-Y.Remarkbox.remarktype.lightcolortext("#800000");
-Y.Remarkbox.remarktype.alwaysvisible("true");
-Y.Remarkbox.remarktype.offsetx("-3em");
-Y.Remarkbox.remarktype.offsety("-2em");
-Y.Remarkbox.remarktype.allowanonymous("true");
-Y.Remarkbox.render();
-});
-</script>
--->
+<link  href="static/procgraph.css" rel="stylesheet" type="text/css" >
 
 
 
@@ -318,41 +204,47 @@ Y.Remarkbox.render();
 </tbody>
 </table>
 </div>
-<div class="section" id="module-procgraph-rawseeds">
+<div class="procgraph-module section" id="module-procgraph-rawseeds">
 <span id="id1"></span><h1>Module <tt class="docutils literal"><span class="pre">procgraph_rawseeds</span></tt><a class="headerlink" href="#module-procgraph-rawseeds" title="Permalink to this headline">¶</a></h1>
-<p>Routines for reading the data from the Rawseeds project.</p>
-<div class="section" id="block-rawseedscam">
-<span id="id2"></span><h2>Block <tt class="docutils literal"><span class="pre">RawseedsCam</span></tt><a class="headerlink" href="#block-rawseedscam" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_camera.py">/src/procgraph_rawseeds/rawseeds_camera.py</a>.</p>
+<p class="procgraph-desc">Routines for reading the data from the Rawseeds project.</p>
+<div class="procgraph-block section" id="rawseedscam">
+<span id="block-rawseedscam"></span><h2>RawseedsCam<a class="headerlink" href="#rawseedscam" title="Permalink to this headline">¶</a></h2>
 <p>This model reads the images of a Rawseed camera log.</p>
+<div class="procgraph-parameters section" id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">dir</span></tt>: Directory containing the images.</li>
+<li><tt class="docutils literal"><span class="pre">fps_limit</span></tt> (default: 100): Limit the frames per second (default is disabled).</li>
+</ul>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_camera.py">/src/procgraph_rawseeds/rawseeds_camera.py</a>.</p>
 </div>
-<div class="section" id="block-rawseedscamfiles">
-<span id="id3"></span><h2>Block <tt class="docutils literal"><span class="pre">RawseedsCamFiles</span></tt><a class="headerlink" href="#block-rawseedscamfiles" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_camera.py">/src/procgraph_rawseeds/rawseeds_camera.py</a>.</p>
+</div>
+<div class="procgraph-block section" id="rawseedscamfiles">
+<span id="block-rawseedscamfiles"></span><h2>RawseedsCamFiles<a class="headerlink" href="#rawseedscamfiles" title="Permalink to this headline">¶</a></h2>
 <p>This block reads the filenames for the Rawseeds camera log.</p>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_camera.py">/src/procgraph_rawseeds/rawseeds_camera.py</a>.</p>
 </div>
-<div class="section" id="block-rawseedsgps">
-<span id="id5"></span><h2>Block <tt class="docutils literal"><span class="pre">RawseedsGPS</span></tt><a class="headerlink" href="#block-rawseedsgps" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_gps.py">/src/procgraph_rawseeds/rawseeds_gps.py</a>.</p>
+<div class="procgraph-block section" id="rawseedsgps">
+<span id="block-rawseedsgps"></span><h2>RawseedsGPS<a class="headerlink" href="#rawseedsgps" title="Permalink to this headline">¶</a></h2>
 <p>This block reads the GPS log from Rawseeds format.</p>
 <p>Example:</p>
 <div class="highlight-python"><pre>1223309581.123667, $GPGGA,143516.80,4530.37118644,N,00909.99763524,E,2,6,1.7,131.984,M,48.022,M,0.8,0000*7
 1223309581.133660, $GPGST,143516.80,0.504,0.238,0.147,54.6,0.212,0.183,0.585*6</pre>
 </div>
 <p>We ignore the GPGST lines for now.</p>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_gps.py">/src/procgraph_rawseeds/rawseeds_gps.py</a>.</p>
 </div>
-<div class="section" id="block-rawseedshokuyo">
-<span id="id6"></span><h2>Block <tt class="docutils literal"><span class="pre">RawseedsHokuyo</span></tt><a class="headerlink" href="#block-rawseedshokuyo" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_hokuyo.py">/src/procgraph_rawseeds/rawseeds_hokuyo.py</a>.</p>
+<div class="procgraph-block section" id="rawseedshokuyo">
+<span id="block-rawseedshokuyo"></span><h2>RawseedsHokuyo<a class="headerlink" href="#rawseedshokuyo" title="Permalink to this headline">¶</a></h2>
 <p>This block reads a Hokuyo log in Rawseeds format.</p>
 <p>File format:</p>
 <div class="highlight-python"><pre>Timestamp [seconds.microseconds]
 R1..R681* Ranges [m]</pre>
 </div>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_hokuyo.py">/src/procgraph_rawseeds/rawseeds_hokuyo.py</a>.</p>
 </div>
-<div class="section" id="block-rawseedsodo">
-<span id="id7"></span><h2>Block <tt class="docutils literal"><span class="pre">RawseedsOdo</span></tt><a class="headerlink" href="#block-rawseedsodo" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_odometry.py">/src/procgraph_rawseeds/rawseeds_odometry.py</a>.</p>
+<div class="procgraph-block section" id="rawseedsodo">
+<span id="block-rawseedsodo"></span><h2>RawseedsOdo<a class="headerlink" href="#rawseedsodo" title="Permalink to this headline">¶</a></h2>
 <p>Read an odometry log file in Rawseeds format.</p>
 <p>File format:</p>
 <div class="highlight-python"><pre>Timestamp [seconds.microseconds]
@@ -371,10 +263,10 @@ Theta [rad]*</pre>
 Y axis is aligned along the front-rear direction and points
 towards the front, X axis is parallel to the wheelbase and points
 towards the right wheel.</p>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_odometry.py">/src/procgraph_rawseeds/rawseeds_odometry.py</a>.</p>
 </div>
-<div class="section" id="block-rawseedsrf">
-<span id="id8"></span><h2>Block <tt class="docutils literal"><span class="pre">RawseedsRF</span></tt><a class="headerlink" href="#block-rawseedsrf" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_rangefinder.py">/src/procgraph_rawseeds/rawseeds_rangefinder.py</a>.</p>
+<div class="procgraph-block section" id="rawseedsrf">
+<span id="block-rawseedsrf"></span><h2>RawseedsRF<a class="headerlink" href="#rawseedsrf" title="Permalink to this headline">¶</a></h2>
 <p>This block reads a range-finder log in Rawseeds format.</p>
 <p>File format:</p>
 <div class="highlight-python"><pre>Timestamp [seconds.microseconds]
@@ -382,155 +274,225 @@ towards the right wheel.</p>
 Angular offset [1/4 degree]
 R1..R181 Ranges (zero padded to 181 ranges) [m]</pre>
 </div>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_rangefinder.py">/src/procgraph_rawseeds/rawseeds_rangefinder.py</a>.</p>
 </div>
-<div class="section" id="block-camera-display">
-<span id="id9"></span><h2>Block <tt class="docutils literal"><span class="pre">camera_display</span></tt><a class="headerlink" href="#block-camera-display" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/camera_display.pg">/src/procgraph_rawseeds/models/to_sort/camera_display.pg</a>.</p>
+<div class="procgraph-block section" id="camera-display">
+<span id="block-camera-display"></span><h2>camera_display<a class="headerlink" href="#camera-display" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/camera_display.pg">/src/procgraph_rawseeds/models/to_sort/camera_display.pg</a>.</p>
 </div>
-<div class="section" id="block-camera-expectation">
-<span id="id10"></span><h2>Block <tt class="docutils literal"><span class="pre">camera_expectation</span></tt><a class="headerlink" href="#block-camera-expectation" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/camera_expectation.pg">/src/procgraph_rawseeds/models/to_sort/camera_expectation.pg</a>.</p>
+<div class="procgraph-block section" id="camera-expectation">
+<span id="block-camera-expectation"></span><h2>camera_expectation<a class="headerlink" href="#camera-expectation" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/camera_expectation.pg">/src/procgraph_rawseeds/models/to_sort/camera_expectation.pg</a>.</p>
 </div>
-<div class="section" id="block-camera-filters">
-<span id="id11"></span><h2>Block <tt class="docutils literal"><span class="pre">camera_filters</span></tt><a class="headerlink" href="#block-camera-filters" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/camera_filters.pg">/src/procgraph_rawseeds/models/to_sort/camera_filters.pg</a>.</p>
+<div class="procgraph-block section" id="camera-filters">
+<span id="block-camera-filters"></span><h2>camera_filters<a class="headerlink" href="#camera-filters" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/camera_filters.pg">/src/procgraph_rawseeds/models/to_sort/camera_filters.pg</a>.</p>
 </div>
-<div class="section" id="block-camera-video">
-<span id="id12"></span><h2>Block <tt class="docutils literal"><span class="pre">camera_video</span></tt><a class="headerlink" href="#block-camera-video" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/camera_video.pg">/src/procgraph_rawseeds/models/to_sort/camera_video.pg</a>.</p>
+<div class="procgraph-block section" id="camera-video">
+<span id="block-camera-video"></span><h2>camera_video<a class="headerlink" href="#camera-video" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/camera_video.pg">/src/procgraph_rawseeds/models/to_sort/camera_video.pg</a>.</p>
 </div>
-<div class="section" id="block-compression-test">
-<span id="id13"></span><h2>Block <tt class="docutils literal"><span class="pre">compression_test</span></tt><a class="headerlink" href="#block-compression-test" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/compression_test.pg">/src/procgraph_rawseeds/models/to_sort/compression_test.pg</a>.</p>
+<div class="procgraph-block section" id="compression-test">
+<span id="block-compression-test"></span><h2>compression_test<a class="headerlink" href="#compression-test" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/compression_test.pg">/src/procgraph_rawseeds/models/to_sort/compression_test.pg</a>.</p>
 </div>
-<div class="section" id="block-decode">
-<span id="id14"></span><h2>Block <tt class="docutils literal"><span class="pre">decode</span></tt><a class="headerlink" href="#block-decode" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/video_tests.pg">/src/procgraph_rawseeds/models/video_tests.pg</a>.</p>
+<div class="procgraph-block section" id="decode">
+<span id="block-decode"></span><h2>decode<a class="headerlink" href="#decode" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/video_tests.pg">/src/procgraph_rawseeds/models/video_tests.pg</a>.</p>
 </div>
-<div class="section" id="block-gray-pipeline">
-<span id="id15"></span><h2>Block <tt class="docutils literal"><span class="pre">gray_pipeline</span></tt><a class="headerlink" href="#block-gray-pipeline" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/nearness.pg">/src/procgraph_rawseeds/models/to_sort/nearness.pg</a>.</p>
+<div class="procgraph-block section" id="gray-pipeline">
+<span id="block-gray-pipeline"></span><h2>gray_pipeline<a class="headerlink" href="#gray-pipeline" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/nearness.pg">/src/procgraph_rawseeds/models/to_sort/nearness.pg</a>.</p>
 </div>
-<div class="section" id="block-master">
-<span id="id16"></span><h2>Block <tt class="docutils literal"><span class="pre">master</span></tt><a class="headerlink" href="#block-master" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/video_frame.pg">/src/procgraph_rawseeds/models/to_sort/video_frame.pg</a>.</p>
+<div class="procgraph-block section" id="master">
+<span id="block-master"></span><h2>master<a class="headerlink" href="#master" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/video_frame.pg">/src/procgraph_rawseeds/models/to_sort/video_frame.pg</a>.</p>
 </div>
-<div class="section" id="block-rangefinder-display">
-<span id="id17"></span><h2>Block <tt class="docutils literal"><span class="pre">rangefinder_display</span></tt><a class="headerlink" href="#block-rangefinder-display" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/rangefinder_display.pg">/src/procgraph_rawseeds/models/to_sort/rangefinder_display.pg</a>.</p>
+<div class="procgraph-block section" id="rangefinder-display">
+<span id="block-rangefinder-display"></span><h2>rangefinder_display<a class="headerlink" href="#rangefinder-display" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/rangefinder_display.pg">/src/procgraph_rawseeds/models/to_sort/rangefinder_display.pg</a>.</p>
 </div>
-<div class="section" id="block-rawseeds-big-movie">
-<span id="id18"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_big_movie</span></tt><a class="headerlink" href="#block-rawseeds-big-movie" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_big_movie.pg">/src/procgraph_rawseeds/models/rawseeds_big_movie.pg</a>.</p>
+<div class="procgraph-block section" id="rawseeds-big-movie">
+<span id="block-rawseeds-big-movie"></span><h2>rawseeds_big_movie<a class="headerlink" href="#rawseeds-big-movie" title="Permalink to this headline">¶</a></h2>
 <p>Creates a big movie file displaying all data</p>
+<div class="procgraph-parameters section" id="id3">
+<h3>Parameters<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">logdir</span></tt>: Rawseeds log directory</li>
+</ul>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_big_movie.pg">/src/procgraph_rawseeds/models/rawseeds_big_movie.pg</a>.</p>
 </div>
-<div class="section" id="block-rawseeds-display-all">
-<span id="id19"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_display_all</span></tt><a class="headerlink" href="#block-rawseeds-display-all" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/all.pg">/src/procgraph_rawseeds/models/to_sort/all.pg</a>.</p>
 </div>
-<div class="section" id="block-rawseeds-odometry">
-<span id="id20"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_odometry</span></tt><a class="headerlink" href="#block-rawseeds-odometry" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/rawseeds_odometry.pg">/src/procgraph_rawseeds/models/to_sort/rawseeds_odometry.pg</a>.</p>
+<div class="procgraph-block section" id="rawseeds-display-all">
+<span id="block-rawseeds-display-all"></span><h2>rawseeds_display_all<a class="headerlink" href="#rawseeds-display-all" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/all.pg">/src/procgraph_rawseeds/models/to_sort/all.pg</a>.</p>
 </div>
-<div class="section" id="block-rawseeds-read-all">
-<span id="id21"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_read_all</span></tt><a class="headerlink" href="#block-rawseeds-read-all" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read_all.pg">/src/procgraph_rawseeds/models/rawseeds_read_all.pg</a>.</p>
+<div class="procgraph-block section" id="rawseeds-odometry">
+<span id="block-rawseeds-odometry"></span><h2>rawseeds_odometry<a class="headerlink" href="#rawseeds-odometry" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/rawseeds_odometry.pg">/src/procgraph_rawseeds/models/to_sort/rawseeds_odometry.pg</a>.</p>
+</div>
+<div class="procgraph-block section" id="rawseeds-read-all">
+<span id="block-rawseeds-read-all"></span><h2>rawseeds_read_all<a class="headerlink" href="#rawseeds-read-all" title="Permalink to this headline">¶</a></h2>
 <p>A model that reads all data from a Rawseeds log, to check it can be read correctly.</p>
+<div class="procgraph-parameters section" id="id4">
+<h3>Parameters<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">logdir</span></tt>: Rawseeds log dir</li>
+</ul>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read_all.pg">/src/procgraph_rawseeds/models/rawseeds_read_all.pg</a>.</p>
 </div>
-<div class="section" id="block-rawseeds-read-all-small">
-<span id="id22"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_read_all_small</span></tt><a class="headerlink" href="#block-rawseeds-read-all-small" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read_all_small.pg">/src/procgraph_rawseeds/models/rawseeds_read_all_small.pg</a>.</p>
+</div>
+<div class="procgraph-block section" id="rawseeds-read-all-small">
+<span id="block-rawseeds-read-all-small"></span><h2>rawseeds_read_all_small<a class="headerlink" href="#rawseeds-read-all-small" title="Permalink to this headline">¶</a></h2>
 <p>Reads the whole log to check that it does not contain errors.</p>
+<div class="procgraph-parameters section" id="id5">
+<h3>Parameters<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">logdir</span></tt>: Rawseeds log dir</li>
+</ul>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read_all_small.pg">/src/procgraph_rawseeds/models/rawseeds_read_all_small.pg</a>.</p>
 </div>
-<div class="section" id="block-rawseeds-read-camera">
-<span id="id23"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_read_camera</span></tt><a class="headerlink" href="#block-rawseeds-read-camera" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read.pg">/src/procgraph_rawseeds/models/rawseeds_read.pg</a>.</p>
+</div>
+<div class="procgraph-block section" id="rawseeds-read-camera">
+<span id="block-rawseeds-read-camera"></span><h2>rawseeds_read_camera<a class="headerlink" href="#rawseeds-read-camera" title="Permalink to this headline">¶</a></h2>
 <p>Reads the whole log to check that it does not contain errors.</p>
+<div class="procgraph-parameters section" id="id6">
+<h3>Parameters<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">dir</span></tt>: Directory containing the images.</li>
+</ul>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read.pg">/src/procgraph_rawseeds/models/rawseeds_read.pg</a>.</p>
 </div>
-<div class="section" id="block-rawseeds-read-gps">
-<span id="id24"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_read_gps</span></tt><a class="headerlink" href="#block-rawseeds-read-gps" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read.pg">/src/procgraph_rawseeds/models/rawseeds_read.pg</a>.</p>
+</div>
+<div class="procgraph-block section" id="rawseeds-read-gps">
+<span id="block-rawseeds-read-gps"></span><h2>rawseeds_read_gps<a class="headerlink" href="#rawseeds-read-gps" title="Permalink to this headline">¶</a></h2>
 <p>Reads the GPS log to check that it does not contain errors.</p>
+<div class="procgraph-parameters section" id="id7">
+<h3>Parameters<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">log</span></tt>: Rawseeds GPS log file (.csv or .csv.bz2)</li>
+</ul>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read.pg">/src/procgraph_rawseeds/models/rawseeds_read.pg</a>.</p>
 </div>
-<div class="section" id="block-rawseeds-read-hokuyo">
-<span id="id26"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_read_hokuyo</span></tt><a class="headerlink" href="#block-rawseeds-read-hokuyo" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read.pg">/src/procgraph_rawseeds/models/rawseeds_read.pg</a>.</p>
+</div>
+<div class="procgraph-block section" id="rawseeds-read-hokuyo">
+<span id="block-rawseeds-read-hokuyo"></span><h2>rawseeds_read_hokuyo<a class="headerlink" href="#rawseeds-read-hokuyo" title="Permalink to this headline">¶</a></h2>
 <p>Reads the whole log to check that it does not contain errors.</p>
+<div class="procgraph-parameters section" id="id9">
+<h3>Parameters<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">log</span></tt>: Rawseeds Hokuyo log file (.csv or .csv.bz2).</li>
+</ul>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read.pg">/src/procgraph_rawseeds/models/rawseeds_read.pg</a>.</p>
 </div>
-<div class="section" id="block-rawseeds-read-sick">
-<span id="id28"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_read_sick</span></tt><a class="headerlink" href="#block-rawseeds-read-sick" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read.pg">/src/procgraph_rawseeds/models/rawseeds_read.pg</a>.</p>
+</div>
+<div class="procgraph-block section" id="rawseeds-read-sick">
+<span id="block-rawseeds-read-sick"></span><h2>rawseeds_read_sick<a class="headerlink" href="#rawseeds-read-sick" title="Permalink to this headline">¶</a></h2>
 <p>Reads the whole log to check that it does not contain errors.</p>
+<div class="procgraph-parameters section" id="id11">
+<h3>Parameters<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">log</span></tt>: Rawseeds Sick log file (.csv or .csv.bz2).</li>
+</ul>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read.pg">/src/procgraph_rawseeds/models/rawseeds_read.pg</a>.</p>
 </div>
-<div class="section" id="block-rawseeds-synchronized-camera">
-<span id="id30"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_synchronized_camera</span></tt><a class="headerlink" href="#block-rawseeds-synchronized-camera" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_synchronized_camera.pg">/src/procgraph_rawseeds/models/rawseeds_synchronized_camera.pg</a>.</p>
+</div>
+<div class="procgraph-block section" id="rawseeds-synchronized-camera">
+<span id="block-rawseeds-synchronized-camera"></span><h2>rawseeds_synchronized_camera<a class="headerlink" href="#rawseeds-synchronized-camera" title="Permalink to this headline">¶</a></h2>
 <p>Outputs the syncrhonized data of 3 cameras (omnidirectional, )</p>
+<div class="procgraph-parameters section" id="id13">
+<h3>Parameters<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">logdir</span></tt>: Rawseeds log directory</li>
+</ul>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_synchronized_camera.pg">/src/procgraph_rawseeds/models/rawseeds_synchronized_camera.pg</a>.</p>
 </div>
-<div class="section" id="block-rawseeds-synchronized-camera-test">
-<span id="id31"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_synchronized_camera_test</span></tt><a class="headerlink" href="#block-rawseeds-synchronized-camera-test" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_synchronized_camera.pg">/src/procgraph_rawseeds/models/rawseeds_synchronized_camera.pg</a>.</p>
+</div>
+<div class="procgraph-block section" id="rawseeds-synchronized-camera-test">
+<span id="block-rawseeds-synchronized-camera-test"></span><h2>rawseeds_synchronized_camera_test<a class="headerlink" href="#rawseeds-synchronized-camera-test" title="Permalink to this headline">¶</a></h2>
 <p>Tests the rawseeds_synchronized_camera model by writing out a movie.</p>
+<div class="procgraph-parameters section" id="id14">
+<h3>Parameters<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">logdir</span></tt>: Rawseeds log directory</li>
+</ul>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_synchronized_camera.pg">/src/procgraph_rawseeds/models/rawseeds_synchronized_camera.pg</a>.</p>
 </div>
-<div class="section" id="block-rawseeds-synchronized-laser">
-<span id="id33"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseeds_synchronized_laser</span></tt><a class="headerlink" href="#block-rawseeds-synchronized-laser" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_synchronized_laser.pg">/src/procgraph_rawseeds/models/rawseeds_synchronized_laser.pg</a>.</p>
+</div>
+<div class="procgraph-block section" id="rawseeds-synchronized-laser">
+<span id="block-rawseeds-synchronized-laser"></span><h2>rawseeds_synchronized_laser<a class="headerlink" href="#rawseeds-synchronized-laser" title="Permalink to this headline">¶</a></h2>
 <p>This model reads and synchronizes the 4 laser sources in a Rawseeds log.</p>
 <p>The data is joined in one long 1D array.
 The order in which they are joined is: <tt class="docutils literal"><span class="pre">hokuyo_front</span></tt>, <tt class="docutils literal"><span class="pre">hokuyo_rear</span></tt>,
 <tt class="docutils literal"><span class="pre">sick_front</span></tt>, <tt class="docutils literal"><span class="pre">sick_rear</span></tt>.</p>
 <p>The Hokuyo data is downsampled with <a class="reference external" href="http://andreacensi.github.com/procgraph/pgdoc.html#block-select" title="(in procgraph v0.1)"><em>Block select</em></a>.
 All data is limited to 10fps using <a class="reference external" href="http://andreacensi.github.com/procgraph/pgdoc.html#block-fps-data-limit" title="(in procgraph v0.1)"><em>Block fps_data_limit</em></a>.</p>
+<div class="procgraph-parameters section" id="id16">
+<h3>Parameters<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">logdir</span></tt>: Rawseeds log directory containing HOKUYO_FRONT.csv.bz2, etc.</li>
+<li><tt class="docutils literal"><span class="pre">fps</span></tt> (default: 12): Frequency limit on the data. Raw Hokuyo is 10, Sick is 76. (set 12 to get full 10hz)</li>
+<li><tt class="docutils literal"><span class="pre">hokuyo_downsample</span></tt> (default: 4): Downsampling for Hokuyo (resolution is 676/1024 rays).</li>
+</ul>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_synchronized_laser.pg">/src/procgraph_rawseeds/models/rawseeds_synchronized_laser.pg</a>.</p>
 </div>
-<div class="section" id="block-rawseedscam2con2der2video">
-<span id="id34"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseedscam2con2der2video</span></tt><a class="headerlink" href="#block-rawseedscam2con2der2video" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/tests.pg">/src/procgraph_rawseeds/models/to_sort/tests.pg</a>.</p>
 </div>
-<div class="section" id="block-rawseedscam2der2video">
-<span id="id35"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseedscam2der2video</span></tt><a class="headerlink" href="#block-rawseedscam2der2video" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/tests.pg">/src/procgraph_rawseeds/models/to_sort/tests.pg</a>.</p>
+<div class="procgraph-block section" id="rawseedscam2con2der2video">
+<span id="block-rawseedscam2con2der2video"></span><h2>rawseedscam2con2der2video<a class="headerlink" href="#rawseedscam2con2der2video" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/tests.pg">/src/procgraph_rawseeds/models/to_sort/tests.pg</a>.</p>
 </div>
-<div class="section" id="block-rawseedscam2gray2der2video">
-<span id="id37"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseedscam2gray2der2video</span></tt><a class="headerlink" href="#block-rawseedscam2gray2der2video" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/tests.pg">/src/procgraph_rawseeds/models/to_sort/tests.pg</a>.</p>
+<div class="procgraph-block section" id="rawseedscam2der2video">
+<span id="block-rawseedscam2der2video"></span><h2>rawseedscam2der2video<a class="headerlink" href="#rawseedscam2der2video" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/tests.pg">/src/procgraph_rawseeds/models/to_sort/tests.pg</a>.</p>
 </div>
-<div class="section" id="block-rawseedscam2video">
-<span id="id39"></span><h2>Block <tt class="docutils literal"><span class="pre">rawseedscam2video</span></tt><a class="headerlink" href="#block-rawseedscam2video" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/tests.pg">/src/procgraph_rawseeds/models/to_sort/tests.pg</a>.</p>
+<div class="procgraph-block section" id="rawseedscam2gray2der2video">
+<span id="block-rawseedscam2gray2der2video"></span><h2>rawseedscam2gray2der2video<a class="headerlink" href="#rawseedscam2gray2der2video" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/tests.pg">/src/procgraph_rawseeds/models/to_sort/tests.pg</a>.</p>
 </div>
-<div class="section" id="block-rf-display">
-<span id="id41"></span><h2>Block <tt class="docutils literal"><span class="pre">rf_display</span></tt><a class="headerlink" href="#block-rf-display" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_big_movie.pg">/src/procgraph_rawseeds/models/rawseeds_big_movie.pg</a>.</p>
+<div class="procgraph-block section" id="rawseedscam2video">
+<span id="block-rawseedscam2video"></span><h2>rawseedscam2video<a class="headerlink" href="#rawseedscam2video" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/tests.pg">/src/procgraph_rawseeds/models/to_sort/tests.pg</a>.</p>
+</div>
+<div class="procgraph-block section" id="rf-display">
+<span id="block-rf-display"></span><h2>rf_display<a class="headerlink" href="#rf-display" title="Permalink to this headline">¶</a></h2>
 <p>Makes a plot of range finder data</p>
+<div class="procgraph-parameters section" id="id20">
+<h3>Parameters<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">title</span></tt>: title for the plot</li>
+<li><tt class="docutils literal"><span class="pre">max</span></tt>: Maximum value for the y axis</li>
+</ul>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_big_movie.pg">/src/procgraph_rawseeds/models/rawseeds_big_movie.pg</a>.</p>
 </div>
-<div class="section" id="block-svs-pipeline">
-<span id="id43"></span><h2>Block <tt class="docutils literal"><span class="pre">svs_pipeline</span></tt><a class="headerlink" href="#block-svs-pipeline" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_big_movie.pg">/src/procgraph_rawseeds/models/rawseeds_big_movie.pg</a>.</p>
+</div>
+<div class="procgraph-block section" id="svs-pipeline">
+<span id="block-svs-pipeline"></span><h2>svs_pipeline<a class="headerlink" href="#svs-pipeline" title="Permalink to this headline">¶</a></h2>
 <p>Pipeline for SVS data</p>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_big_movie.pg">/src/procgraph_rawseeds/models/rawseeds_big_movie.pg</a>.</p>
 </div>
-<div class="section" id="block-test-dynamics">
-<span id="id45"></span><h2>Block <tt class="docutils literal"><span class="pre">test_dynamics</span></tt><a class="headerlink" href="#block-test-dynamics" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/test_dynamic.pg">/src/procgraph_rawseeds/models/to_sort/test_dynamic.pg</a>.</p>
+<div class="procgraph-block section" id="test-dynamics">
+<span id="block-test-dynamics"></span><h2>test_dynamics<a class="headerlink" href="#test-dynamics" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/test_dynamic.pg">/src/procgraph_rawseeds/models/to_sort/test_dynamic.pg</a>.</p>
 </div>
-<div class="section" id="block-test-nearness">
-<span id="id46"></span><h2>Block <tt class="docutils literal"><span class="pre">test_nearness</span></tt><a class="headerlink" href="#block-test-nearness" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/nearness.pg">/src/procgraph_rawseeds/models/to_sort/nearness.pg</a>.</p>
+<div class="procgraph-block section" id="test-nearness">
+<span id="block-test-nearness"></span><h2>test_nearness<a class="headerlink" href="#test-nearness" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/nearness.pg">/src/procgraph_rawseeds/models/to_sort/nearness.pg</a>.</p>
 </div>
-<div class="section" id="block-test-pose2commands">
-<span id="id48"></span><h2>Block <tt class="docutils literal"><span class="pre">test_pose2commands</span></tt><a class="headerlink" href="#block-test-pose2commands" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/odometry_vel.pg">/src/procgraph_rawseeds/models/to_sort/odometry_vel.pg</a>.</p>
+<div class="procgraph-block section" id="test-pose2commands">
+<span id="block-test-pose2commands"></span><h2>test_pose2commands<a class="headerlink" href="#test-pose2commands" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/odometry_vel.pg">/src/procgraph_rawseeds/models/to_sort/odometry_vel.pg</a>.</p>
 </div>
-<div class="section" id="block-testing-resize">
-<span id="id49"></span><h2>Block <tt class="docutils literal"><span class="pre">testing_resize</span></tt><a class="headerlink" href="#block-testing-resize" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/tests.pg">/src/procgraph_rawseeds/models/to_sort/tests.pg</a>.</p>
+<div class="procgraph-block section" id="testing-resize">
+<span id="block-testing-resize"></span><h2>testing_resize<a class="headerlink" href="#testing-resize" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/tests.pg">/src/procgraph_rawseeds/models/to_sort/tests.pg</a>.</p>
 </div>
-<div class="section" id="block-transcode">
-<span id="id51"></span><h2>Block <tt class="docutils literal"><span class="pre">transcode</span></tt><a class="headerlink" href="#block-transcode" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/video_tests.pg">/src/procgraph_rawseeds/models/video_tests.pg</a>.</p>
+<div class="procgraph-block section" id="transcode">
+<span id="block-transcode"></span><h2>transcode<a class="headerlink" href="#transcode" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/video_tests.pg">/src/procgraph_rawseeds/models/video_tests.pg</a>.</p>
 </div>
-<div class="section" id="block-transcode-filter">
-<span id="id53"></span><h2>Block <tt class="docutils literal"><span class="pre">transcode_filter</span></tt><a class="headerlink" href="#block-transcode-filter" title="Permalink to this headline">¶</a></h2>
-<p>Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/video_tests.pg">/src/procgraph_rawseeds/models/video_tests.pg</a>.</p>
+<div class="procgraph-block section" id="transcode-filter">
+<span id="block-transcode-filter"></span><h2>transcode_filter<a class="headerlink" href="#transcode-filter" title="Permalink to this headline">¶</a></h2>
+<p class="procgraph-source">Implemented in <a class="reference external" href="https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/video_tests.pg">/src/procgraph_rawseeds/models/video_tests.pg</a>.</p>
 </div>
 </div>
 
