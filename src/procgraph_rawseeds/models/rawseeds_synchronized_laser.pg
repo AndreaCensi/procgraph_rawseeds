@@ -1,7 +1,16 @@
 --- model rawseeds_synchronized_laser
-""" This model reads and synchronizes the 4 laser sources in a Rawseeds log. """
+""" This model reads and synchronizes the 4 laser sources in a Rawseeds log. 
+
+    The data is joined in one long 1D array.
+    The order in which they are joined is: ``hokuyo_front``, ``hokuyo_rear``, 
+    ``sick_front``, ``sick_rear``.
+    
+    The Hokuyo data is downsampled with :ref:`block:select`.
+    All data is limited to 10fps using :ref:`block:fps_data_limit`.
+    
+"""
 config logdir                 "Rawseeds log directory containing HOKUYO_FRONT.csv.bz2, etc."
-config fps = 10               "fps limit on the data. Hokuyo is 10, Sick is ? natively."
+config fps = 12               "Frequency limit on the data. Raw Hokuyo is 10, Sick is 76. (set 12 to get full 10hz) "
 config hokuyo_downsample = 4  "Downsampling for Hokuyo (resolution is 676/1024 rays). "
 # output y                      "Synchronized data. Order: HF,HR,SF,SR"
 
@@ -16,7 +25,6 @@ hokuyo_front.file = "${logdir}/HOKUYO_FRONT.csv.bz2"
 | hokuyo_rear:RawseedsHokuyo| --> |fps_data_limit fps=$fps| --> |select every=$hokuyo_downsample| --> hokuyo_rear
 |  sick_front:RawseedsRF|     --> |fps_data_limit fps=$fps| --> sick_front 
 |   sick_rear:RawseedsRF|     --> |fps_data_limit fps=$fps| --> sick_rear
-
 
 
 hokuyo_front, hokuyo_rear, sick_front, sick_rear --> |sync| --> |join| --> y
