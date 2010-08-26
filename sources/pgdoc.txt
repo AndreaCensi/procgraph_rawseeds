@@ -65,20 +65,25 @@ Routines for reading the data from the Rawseeds project.
 
 Block ``RawseedsCam``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/rawseeds_camera.py <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_camera.py>`_. 
+
 This model reads the images of a Rawseed camera log.
 
 .. _`block:RawseedsCamFiles`:
 
 Block ``RawseedsCamFiles``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/rawseeds_camera.py <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_camera.py>`_. 
+
 This block reads the filenames for the Rawseeds camera log.
 
 .. _`block:RawseedsGPS`:
 
 Block ``RawseedsGPS``
 ------------------------------------------------------------
-This block reads the GPS log from Rawseeds format.
+Implemented in `/src/procgraph_rawseeds/rawseeds_gps.py <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_gps.py>`_. 
 
+This block reads the GPS log from Rawseeds format. 
 
 Example: ::
 
@@ -91,8 +96,9 @@ We ignore the GPGST lines for now.
 
 Block ``RawseedsHokuyo``
 ------------------------------------------------------------
-This block reads a Hokuyo log in Rawseeds format.
+Implemented in `/src/procgraph_rawseeds/rawseeds_hokuyo.py <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_hokuyo.py>`_. 
 
+This block reads a Hokuyo log in Rawseeds format. 
 
 File format: ::
 
@@ -103,8 +109,9 @@ File format: ::
 
 Block ``RawseedsOdo``
 ------------------------------------------------------------
-Read an odometry log file in Rawseeds format.
+Implemented in `/src/procgraph_rawseeds/rawseeds_odometry.py <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_odometry.py>`_. 
 
+Read an odometry log file in Rawseeds format. 
 
 File format: ::
 
@@ -129,8 +136,9 @@ towards the right wheel.
 
 Block ``RawseedsRF``
 ------------------------------------------------------------
-This block reads a range-finder log in Rawseeds format.
+Implemented in `/src/procgraph_rawseeds/rawseeds_rangefinder.py <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_rangefinder.py>`_. 
 
+This block reads a range-finder log in Rawseeds format. 
 
 File format: ::
 
@@ -143,108 +151,151 @@ File format: ::
 
 Block ``camera_display``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/camera_display.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/camera_display.pg>`_. 
+
 .. _`block:camera_expectation`:
 
 Block ``camera_expectation``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/camera_expectation.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/camera_expectation.pg>`_. 
+
 .. _`block:camera_filters`:
 
 Block ``camera_filters``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/camera_filters.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/camera_filters.pg>`_. 
+
 .. _`block:camera_video`:
 
 Block ``camera_video``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/camera_video.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/camera_video.pg>`_. 
+
 .. _`block:compression_test`:
 
 Block ``compression_test``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/compression_test.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/compression_test.pg>`_. 
+
 .. _`block:decode`:
 
 Block ``decode``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/video_tests.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/video_tests.pg>`_. 
+
 .. _`block:gray_pipeline`:
 
 Block ``gray_pipeline``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/nearness.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/nearness.pg>`_. 
+
 .. _`block:master`:
 
 Block ``master``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/video_frame.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/video_frame.pg>`_. 
+
 .. _`block:rangefinder_display`:
 
 Block ``rangefinder_display``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/rangefinder_display.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/rangefinder_display.pg>`_. 
+
 .. _`block:rawseeds_big_movie`:
 
 Block ``rawseeds_big_movie``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/rawseeds_big_movie.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_big_movie.pg>`_. 
+
 Creates a big movie file displaying all data
 
 .. _`block:rawseeds_display_all`:
 
 Block ``rawseeds_display_all``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/all.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/all.pg>`_. 
+
 .. _`block:rawseeds_odometry`:
 
 Block ``rawseeds_odometry``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/rawseeds_odometry.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/rawseeds_odometry.pg>`_. 
+
 .. _`block:rawseeds_read_all`:
 
 Block ``rawseeds_read_all``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/rawseeds_read_all.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read_all.pg>`_. 
+
 A model that reads all data from a Rawseeds log, to check it can be read correctly.
 
 .. _`block:rawseeds_read_all_small`:
 
 Block ``rawseeds_read_all_small``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/rawseeds_read_all_small.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read_all_small.pg>`_. 
+
 Reads the whole log to check that it does not contain errors.
 
 .. _`block:rawseeds_read_camera`:
 
 Block ``rawseeds_read_camera``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/rawseeds_read.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read.pg>`_. 
+
 Reads the whole log to check that it does not contain errors.
 
 .. _`block:rawseeds_read_gps`:
 
 Block ``rawseeds_read_gps``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/rawseeds_read.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read.pg>`_. 
+
 Reads the GPS log to check that it does not contain errors.
 
 .. _`block:rawseeds_read_hokuyo`:
 
 Block ``rawseeds_read_hokuyo``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/rawseeds_read.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read.pg>`_. 
+
 Reads the whole log to check that it does not contain errors.
 
 .. _`block:rawseeds_read_sick`:
 
 Block ``rawseeds_read_sick``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/rawseeds_read.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_read.pg>`_. 
+
 Reads the whole log to check that it does not contain errors.
 
 .. _`block:rawseeds_synchronized_camera`:
 
 Block ``rawseeds_synchronized_camera``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/rawseeds_synchronized_camera.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_synchronized_camera.pg>`_. 
+
 Outputs the syncrhonized data of 3 cameras (omnidirectional, )
 
 .. _`block:rawseeds_synchronized_camera_test`:
 
 Block ``rawseeds_synchronized_camera_test``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/rawseeds_synchronized_camera.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_synchronized_camera.pg>`_. 
+
 Tests the rawseeds_synchronized_camera model by writing out a movie.
 
 .. _`block:rawseeds_synchronized_laser`:
 
 Block ``rawseeds_synchronized_laser``
 ------------------------------------------------------------
-This model reads and synchronizes the 4 laser sources in a Rawseeds log.
+Implemented in `/src/procgraph_rawseeds/models/rawseeds_synchronized_laser.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_synchronized_laser.pg>`_. 
 
+This model reads and synchronizes the 4 laser sources in a Rawseeds log. 
 
-The order in which they are joined is: ``hokuyo_front``, ``hokuyo_rear``, ``sick_front``, ``sick_rear``.
+The data is joined in one long 1D array.
+The order in which they are joined is: ``hokuyo_front``, ``hokuyo_rear``,
+``sick_front``, ``sick_rear``.
 
 The Hokuyo data is downsampled with :ref:`block:select`.
 All data is limited to 10fps using :ref:`block:fps_data_limit`.
@@ -253,51 +304,75 @@ All data is limited to 10fps using :ref:`block:fps_data_limit`.
 
 Block ``rawseedscam2con2der2video``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/tests.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/tests.pg>`_. 
+
 .. _`block:rawseedscam2der2video`:
 
 Block ``rawseedscam2der2video``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/tests.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/tests.pg>`_. 
+
 .. _`block:rawseedscam2gray2der2video`:
 
 Block ``rawseedscam2gray2der2video``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/tests.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/tests.pg>`_. 
+
 .. _`block:rawseedscam2video`:
 
 Block ``rawseedscam2video``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/tests.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/tests.pg>`_. 
+
 .. _`block:rf_display`:
 
 Block ``rf_display``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/rawseeds_big_movie.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_big_movie.pg>`_. 
+
 Makes a plot of range finder data
 
 .. _`block:svs_pipeline`:
 
 Block ``svs_pipeline``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/rawseeds_big_movie.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_big_movie.pg>`_. 
+
 Pipeline for SVS data
 
 .. _`block:test_dynamics`:
 
 Block ``test_dynamics``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/test_dynamic.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/test_dynamic.pg>`_. 
+
 .. _`block:test_nearness`:
 
 Block ``test_nearness``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/nearness.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/nearness.pg>`_. 
+
 .. _`block:test_pose2commands`:
 
 Block ``test_pose2commands``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/odometry_vel.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/odometry_vel.pg>`_. 
+
 .. _`block:testing_resize`:
 
 Block ``testing_resize``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/to_sort/tests.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/to_sort/tests.pg>`_. 
+
 .. _`block:transcode`:
 
 Block ``transcode``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/video_tests.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/video_tests.pg>`_. 
+
 .. _`block:transcode_filter`:
 
 Block ``transcode_filter``
 ------------------------------------------------------------
+Implemented in `/src/procgraph_rawseeds/models/video_tests.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/video_tests.pg>`_. 
+
