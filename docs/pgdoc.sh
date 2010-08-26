@@ -1,1 +1,1 @@
-pgdoc --label 'pgdoc:procgraph_rawseeds' --output source/pgdoc.rst procgraph_rawseeds
+pgdoc --translate `pwd`/..=https://github.com/AndreaCensi/procgraph_rawseeds/blob/master --label 'pgdoc:procgraph_rawseeds' --output source/pgdoc.rst procgraph_rawseeds
