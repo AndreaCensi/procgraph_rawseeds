@@ -1,5 +1,5 @@
 --- model rawseeds_synchronized_camera
-""" Outputs the syncrhonized data of 3 cameras (omnidirectional, )"""
+""" Outputs the syncrhonized data of 3 cameras (omnidirectional, frontal, SVS_T) stitched together. """
 config logdir "Rawseeds log directory"
  
 import procgraph_rawseeds

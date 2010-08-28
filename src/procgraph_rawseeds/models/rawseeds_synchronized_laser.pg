@@ -22,7 +22,7 @@ hokuyo_front.file = "${logdir}/HOKUYO_FRONT.csv.bz2"
    sick_rear.file = "${logdir}/SICK_REAR.csv.bz2"
    
 |hokuyo_front:RawseedsHokuyo| --> |fps_data_limit fps=$fps| --> |select every=$hokuyo_downsample| --> hokuyo_front
-| hokuyo_rear:RawseedsHokuyo| --> |fps_data_limit fps=$fps| --> |select every=$hokuyo_downsample| --> hokuyo_rear
+| hokuyo_rear:RawseedsHokuyo| --> |fps_data_limit fps=$fps| --> |select every=$hokuyo_downsample| --> hokuyo_rear 
 |  sick_front:RawseedsRF|     --> |fps_data_limit fps=$fps| --> sick_front 
 |   sick_rear:RawseedsRF|     --> |fps_data_limit fps=$fps| --> sick_rear
 
@@ -30,4 +30,42 @@ hokuyo_front.file = "${logdir}/HOKUYO_FRONT.csv.bz2"
 hokuyo_front, hokuyo_rear, sick_front, sick_rear --> |sync| --> |join| --> y
 
 y --> |output name=y|
+ 
+
+--- model rawseeds_synchronized_laser_test
+''' Creates a display of the data output by :ref:`block:rawseeds_synchronized_laser`.'''
+config logdir 'Rawseeds log directory.'
+
+|rawseeds_synchronized_laser logdir=$logdir| --> y 
+
+y --> |rawseeds_synchronized_laser_plot| -->  rgb
+
+ rgb --> |mencoder file="${logdir}/out/synchronized_laser_test/rgb.avi"|
+
+
+--- model rawseeds_synchronized_laser_plot
+''' Displays the stream coming from :ref:`block:rawseeds_synchronized_laser`. 
+
+    It assumes that ``hokuyo_downsample == 4``.
+    
+'''
+config width = 320 'Width of each display.'
+config height = 320 'Height of each display.'
+# input y 'Data produced by :ref:`block:rawseeds_synchronized_laser`.'
+# output rgb 'RGB image with the two plots side by side'
+
+|input name=y| --> y
+
+y --> |  display_sick:laser_display width=$width height=$height| --> rgb1
+y --> |display_hokuyo:laser_display width=$width height=$height| --> rgb2
+
+rgb1,rgb2 --> |sync| --> |grid| --> |output name=out|
+
+# sick is 181, hokuyo/4 = 171, y has 704 readings in total
+display_hokuyo.groups = [{ indices: [0,170], theta: [-1.92,+1.92], color: 'r', origin: [0,0,0],  max_readings: 5}, { indices: [171,341], theta: [+1.22,+5.06], color: 'b', origin: [0,0,0], max_readings: 5}]
+display_sick.groups = [{ indices: [342,522], theta: [-1.57,+1.57], color: 'r', origin: [0,0,0]}, { indices: [523,703], theta: [+1.57,+4.71], color: 'b', origin: [0,0,0]}]
+
+
+
+
 
