@@ -2,7 +2,7 @@ import numpy
 
 from procgraph.components.textlog import TextLog
 from procgraph.components.basic import register_block
-
+from procgraph import block_config, block_output
 
 class RawseedsHokuyo(TextLog):
     ''' This block reads a Hokuyo log in Rawseeds format. 
@@ -13,6 +13,9 @@ class RawseedsHokuyo(TextLog):
             R1..R681* Ranges [m]
     
     '''
+    
+    block_config('file', 'Filename. If it ends with ``bz2`` it is treated as compressed.')
+    block_output('readings', 'Range finder readings')
     
     def parse_format(self, line):
         """ returns a tuple (timestamp, array of (name, value) )"""

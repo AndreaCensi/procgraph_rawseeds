@@ -1,7 +1,8 @@
 --- model rawseeds_synchronized_camera
 """ Outputs the syncrhonized data of 3 cameras (omnidirectional, frontal, SVS_T) stitched together. """
 config logdir "Rawseeds log directory"
- 
+output y "RGB data of the three camers stitched together."
+
 import procgraph_rawseeds
 import procgraph.components.cv 
 import procgraph.components.pil

@@ -70,6 +70,9 @@ rgb --> |mencoder file=$out fps=30|
 
 --- model svs_pipeline
 """ Pipeline for SVS data"""
+input cam "SVS data"
+output rgb "RGB data"
+
 w = 240
 h = 180
 |input name=cam| --> |gray2rgb| -->  |resize width=$w height=$h| --> |output name=rgb|

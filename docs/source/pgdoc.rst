@@ -35,9 +35,11 @@ Routines for reading the data from the Rawseeds project.
 :ref:`rawseeds_read_gps <block:rawseeds_read_gps>`                                                                                                                                                       Reads the GPS log to check that it does not contain errors.                                                                                                                                             
 :ref:`rawseeds_read_hokuyo <block:rawseeds_read_hokuyo>`                                                                                                                                                 Reads the whole log to check that it does not contain errors.                                                                                                                                           
 :ref:`rawseeds_read_sick <block:rawseeds_read_sick>`                                                                                                                                                     Reads the whole log to check that it does not contain errors.                                                                                                                                           
-:ref:`rawseeds_synchronized_camera <block:rawseeds_synchronized_camera>`                                                                                                                                 Outputs the syncrhonized data of 3 cameras (omnidirectional, )                                                                                                                                          
+:ref:`rawseeds_synchronized_camera <block:rawseeds_synchronized_camera>`                                                                                                                                 Outputs the syncrhonized data of 3 cameras (omnidirectional, frontal, SVS_T) stitched together.                                                                                                         
 :ref:`rawseeds_synchronized_camera_test <block:rawseeds_synchronized_camera_test>`                                                                                                                       Tests the rawseeds_synchronized_camera model by writing out a movie.                                                                                                                                    
 :ref:`rawseeds_synchronized_laser <block:rawseeds_synchronized_laser>`                                                                                                                                   This model reads and synchronizes the 4 laser sources in a Rawseeds log.                                                                                                                                
+:ref:`rawseeds_synchronized_laser_plot <block:rawseeds_synchronized_laser_plot>`                                                                                                                         Displays the stream coming from :ref:`block:rawseeds_synchronized_laser`.                                                                                                                               
+:ref:`rawseeds_synchronized_laser_test <block:rawseeds_synchronized_laser_test>`                                                                                                                         Creates a display of the data output by :ref:`block:rawseeds_synchronized_laser`.                                                                                                                       
 :ref:`rawseedscam2con2der2video <block:rawseedscam2con2der2video>`                                                                                                                                       None                                                                                                                                                                                                    
 :ref:`rawseedscam2der2video <block:rawseedscam2der2video>`                                                                                                                                               None                                                                                                                                                                                                    
 :ref:`rawseedscam2gray2der2video <block:rawseedscam2gray2der2video>`                                                                                                                                     None                                                                                                                                                                                                    
@@ -79,7 +81,7 @@ This model reads the images of a Rawseed camera log.
 
 .. rst-class:: procgraph:parameters
 
-Parameters
+Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``dir``: Directory containing the images.
@@ -99,7 +101,26 @@ Implemented in `/src/procgraph_rawseeds/rawseeds_camera.py <https://github.com/A
 
 RawseedsCamFiles
 ------------------------------------------------------------
-This block reads the filenames for the Rawseeds camera log.
+This block reads the filenames for the Rawseeds camera log. 
+
+It is assumed that the files follow the regexp ``'(\w+)_(\d+)\.(\d+)\.png'``,
+that is, ``<LOGNAME>_<TIMESTAMP>.png``
+
+
+.. rst-class:: procgraph:parameters
+
+Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``dir``: Directory containing the image files.
+
+
+.. rst-class:: procgraph:output
+
+Output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``filename``: Image filenames
 
 
 .. rst-class:: procgraph:source
@@ -116,12 +137,32 @@ RawseedsGPS
 ------------------------------------------------------------
 This block reads the GPS log from Rawseeds format. 
 
-Example: ::
+Example of GPS file format: ::
 
     1223309581.123667, $GPGGA,143516.80,4530.37118644,N,00909.99763524,E,2,6,1.7,131.984,M,48.022,M,0.8,0000*7
     1223309581.133660, $GPGST,143516.80,0.504,0.238,0.147,54.6,0.212,0.183,0.585*6
 
 We ignore the GPGST lines for now.
+
+
+.. rst-class:: procgraph:parameters
+
+Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``file``: Filename. If it ends with ``bz2`` it is treated as compressed.
+
+
+.. rst-class:: procgraph:output
+
+Output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``latitude``: None
+
+- ``longitude``: None
+
+- ``altitude``: None
 
 
 .. rst-class:: procgraph:source
@@ -142,6 +183,22 @@ File format: ::
 
     Timestamp [seconds.microseconds]
     R1..R681* Ranges [m]
+
+
+.. rst-class:: procgraph:parameters
+
+Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``file``: Filename. If it ends with ``bz2`` it is treated as compressed.
+
+
+.. rst-class:: procgraph:output
+
+Output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``readings``: Range finder readings
 
 
 .. rst-class:: procgraph:source
@@ -178,6 +235,36 @@ towards the front, X axis is parallel to the wheelbase and points
 towards the right wheel.
 
 
+.. rst-class:: procgraph:parameters
+
+Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``file``: Filename. If it ends with ``bz2`` it is treated as compressed.
+
+
+.. rst-class:: procgraph:output
+
+Output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``readings``: Range finder readings
+
+- ``pose``: x,y,theta
+
+- ``ticks_right``: None
+
+- ``ticks_left``: None
+
+- ``x``: None
+
+- ``y``: None
+
+- ``theta``: None
+
+- ``rolling_counter``: None
+
+
 .. rst-class:: procgraph:source
 
 Implemented in `/src/procgraph_rawseeds/rawseeds_odometry.py <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/rawseeds_odometry.py>`_. 
@@ -198,6 +285,22 @@ File format: ::
     # of ranges [unitless]
     Angular offset [1/4 degree]
     R1..R181 Ranges (zero padded to 181 ranges) [m]
+
+
+.. rst-class:: procgraph:parameters
+
+Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``file``: Filename. If it ends with ``bz2`` it is treated as compressed.
+
+
+.. rst-class:: procgraph:output
+
+Output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``readings``: Range finder readings
 
 
 .. rst-class:: procgraph:source
@@ -334,7 +437,7 @@ Creates a big movie file displaying all data
 
 .. rst-class:: procgraph:parameters
 
-Parameters
+Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``logdir``: Rawseeds log directory
@@ -383,7 +486,7 @@ A model that reads all data from a Rawseeds log, to check it can be read correct
 
 .. rst-class:: procgraph:parameters
 
-Parameters
+Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``logdir``: Rawseeds log dir
@@ -406,7 +509,7 @@ Reads the whole log to check that it does not contain errors.
 
 .. rst-class:: procgraph:parameters
 
-Parameters
+Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``logdir``: Rawseeds log dir
@@ -429,7 +532,7 @@ Reads the whole log to check that it does not contain errors.
 
 .. rst-class:: procgraph:parameters
 
-Parameters
+Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``dir``: Directory containing the images.
@@ -452,7 +555,7 @@ Reads the GPS log to check that it does not contain errors.
 
 .. rst-class:: procgraph:parameters
 
-Parameters
+Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``log``: Rawseeds GPS log file (.csv or .csv.bz2)
@@ -475,7 +578,7 @@ Reads the whole log to check that it does not contain errors.
 
 .. rst-class:: procgraph:parameters
 
-Parameters
+Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``log``: Rawseeds Hokuyo log file (.csv or .csv.bz2).
@@ -498,7 +601,7 @@ Reads the whole log to check that it does not contain errors.
 
 .. rst-class:: procgraph:parameters
 
-Parameters
+Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``log``: Rawseeds Sick log file (.csv or .csv.bz2).
@@ -516,15 +619,23 @@ Implemented in `/src/procgraph_rawseeds/models/rawseeds_read.pg <https://github.
 
 rawseeds_synchronized_camera
 ------------------------------------------------------------
-Outputs the syncrhonized data of 3 cameras (omnidirectional, )
+Outputs the syncrhonized data of 3 cameras (omnidirectional, frontal, SVS_T) stitched together.
 
 
 .. rst-class:: procgraph:parameters
 
-Parameters
+Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``logdir``: Rawseeds log directory
+
+
+.. rst-class:: procgraph:output
+
+Output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``y``: RGB data of the three camers stitched together.
 
 
 .. rst-class:: procgraph:source
@@ -544,7 +655,7 @@ Tests the rawseeds_synchronized_camera model by writing out a movie.
 
 .. rst-class:: procgraph:parameters
 
-Parameters
+Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``logdir``: Rawseeds log directory
@@ -574,7 +685,7 @@ All data is limited to 10fps using :ref:`block:fps_data_limit`.
 
 .. rst-class:: procgraph:parameters
 
-Parameters
+Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``logdir``: Rawseeds log directory containing HOKUYO_FRONT.csv.bz2, etc.
@@ -582,6 +693,80 @@ Parameters
 - ``fps`` (default: 12): Frequency limit on the data. Raw Hokuyo is 10, Sick is 76. (set 12 to get full 10hz)
 
 - ``hokuyo_downsample`` (default: 4): Downsampling for Hokuyo (resolution is 676/1024 rays).
+
+
+.. rst-class:: procgraph:output
+
+Output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``y``: Synchronized data. Order: HF,HR,SF,SR
+
+
+.. rst-class:: procgraph:source
+
+Implemented in `/src/procgraph_rawseeds/models/rawseeds_synchronized_laser.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_synchronized_laser.pg>`_. 
+
+
+.. _`block:rawseeds_synchronized_laser_plot`:
+
+
+.. rst-class:: procgraph:block
+
+rawseeds_synchronized_laser_plot
+------------------------------------------------------------
+Displays the stream coming from :ref:`block:rawseeds_synchronized_laser`. 
+
+It assumes that ``hokuyo_downsample == 4``.
+
+
+.. rst-class:: procgraph:parameters
+
+Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``width`` (default: 320): Width of each display.
+
+- ``height`` (default: 320): Height of each display.
+
+
+.. rst-class:: procgraph:input
+
+Input
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``y``: Data produced by :ref:`block:rawseeds_synchronized_laser`.
+
+
+.. rst-class:: procgraph:output
+
+Output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``rgb``: RGB image with the two plots side by side
+
+
+.. rst-class:: procgraph:source
+
+Implemented in `/src/procgraph_rawseeds/models/rawseeds_synchronized_laser.pg <https://github.com/AndreaCensi/procgraph_rawseeds/blob/master//src/procgraph_rawseeds/models/rawseeds_synchronized_laser.pg>`_. 
+
+
+.. _`block:rawseeds_synchronized_laser_test`:
+
+
+.. rst-class:: procgraph:block
+
+rawseeds_synchronized_laser_test
+------------------------------------------------------------
+Creates a display of the data output by :ref:`block:rawseeds_synchronized_laser`.
+
+
+.. rst-class:: procgraph:parameters
+
+Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``logdir``: Rawseeds log directory.
 
 
 .. rst-class:: procgraph:source
@@ -653,7 +838,7 @@ Makes a plot of range finder data
 
 .. rst-class:: procgraph:parameters
 
-Parameters
+Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``title``: title for the plot
@@ -674,6 +859,22 @@ Implemented in `/src/procgraph_rawseeds/models/rawseeds_big_movie.pg <https://gi
 svs_pipeline
 ------------------------------------------------------------
 Pipeline for SVS data
+
+
+.. rst-class:: procgraph:input
+
+Input
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``cam``: SVS data
+
+
+.. rst-class:: procgraph:output
+
+Output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``rgb``: RGB data
 
 
 .. rst-class:: procgraph:source

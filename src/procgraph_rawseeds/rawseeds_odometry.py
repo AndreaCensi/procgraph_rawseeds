@@ -1,5 +1,6 @@
 from procgraph.components.textlog import TextLog
 from procgraph.components.basic import register_block
+from procgraph  import block_output, block_config, block_alias
 
 
 class RawseedsOdometry(TextLog):
@@ -25,6 +26,15 @@ class RawseedsOdometry(TextLog):
     towards the right wheel.
 
 '''
+    block_alias('RawseedsOdo')
+    block_config('file', 'Filename. If it ends with ``bz2`` it is treated as compressed.')
+    block_output('pose', 'x,y,theta')
+    block_output('ticks_right')
+    block_output('ticks_left')
+    block_output('x')
+    block_output('y')
+    block_output('theta')
+    block_output('rolling_counter') 
 
     def parse_format(self, line):
         """ returns a tuple (timestamp, array of (name, value) )"""

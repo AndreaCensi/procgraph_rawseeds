@@ -2,6 +2,7 @@ import numpy
 
 from procgraph.components.textlog import TextLog
 from procgraph.components.basic import register_block
+from procgraph  import block_output, block_config, block_alias
 
 
 class RawseedsRangeFinder(TextLog):
@@ -15,6 +16,9 @@ class RawseedsRangeFinder(TextLog):
         R1..R181 Ranges (zero padded to 181 ranges) [m]
     
     '''
+    block_alias('RawseedsRF')
+    block_config('file', 'Filename. If it ends with ``bz2`` it is treated as compressed.')
+    block_output('readings', 'Range finder readings')
     
     def parse_format(self, line):
         """ returns a tuple (timestamp, array of (name, value) )"""

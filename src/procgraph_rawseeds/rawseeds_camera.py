@@ -1,12 +1,20 @@
 import os, re
 
-from procgraph.core.block import Generator 
+from procgraph import Generator, block_output, block_config
 from procgraph.components.file_utils import expand_environment
 from procgraph.components.basic import register_model_spec, register_block
 
 
 class RawseedsCamFiles(Generator):
-    ''' This block reads the filenames for the Rawseeds camera log.'''
+    ''' This block reads the filenames for the Rawseeds camera log.
+    
+        It is assumed that the files follow the regexp ``'(\w+)_(\d+)\.(\d+)\.png'``,
+        that is, ``<LOGNAME>_<TIMESTAMP>.png``
+    
+    '''
+    block_config('dir', 'Directory containing the image files.')
+    block_output('filename', 'Image filenames')
+    
     
     def init(self):
         dirname = self.config.dir

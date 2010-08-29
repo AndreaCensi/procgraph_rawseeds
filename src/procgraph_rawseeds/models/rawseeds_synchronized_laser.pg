@@ -12,7 +12,7 @@
 config logdir                 "Rawseeds log directory containing HOKUYO_FRONT.csv.bz2, etc."
 config fps = 12               "Frequency limit on the data. Raw Hokuyo is 10, Sick is 76. (set 12 to get full 10hz) "
 config hokuyo_downsample = 4  "Downsampling for Hokuyo (resolution is 676/1024 rays). "
-# output y                      "Synchronized data. Order: HF,HR,SF,SR"
+output y                      "Synchronized data. Order: HF,HR,SF,SR"
 
 import procgraph_rawseeds
 
@@ -51,8 +51,8 @@ y --> |rawseeds_synchronized_laser_plot| -->  rgb
 '''
 config width = 320 'Width of each display.'
 config height = 320 'Height of each display.'
-# input y 'Data produced by :ref:`block:rawseeds_synchronized_laser`.'
-# output rgb 'RGB image with the two plots side by side'
+input y 'Data produced by :ref:`block:rawseeds_synchronized_laser`.'
+output rgb 'RGB image with the two plots side by side'
 
 |input name=y| --> y
 
