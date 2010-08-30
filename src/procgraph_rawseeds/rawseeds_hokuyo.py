@@ -1,7 +1,8 @@
 import numpy
 
 from procgraph.components.textlog import TextLog
-from procgraph.components.basic import register_block
+
+
 from procgraph import block_config, block_output
 
 class RawseedsHokuyo(TextLog):
@@ -30,6 +31,4 @@ class RawseedsHokuyo(TextLog):
             
         return timestamp, [('readings', readings)]
 
-
-register_block(RawseedsHokuyo)
-
+ 

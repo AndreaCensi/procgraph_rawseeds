@@ -1,9 +1,8 @@
 import os, re
 
 from procgraph import Generator, block_output, block_config
-from procgraph.components.file_utils import expand_environment
-from procgraph.components.basic import register_model_spec, register_block
-
+from procgraph.components.file_utils import expand_environment 
+from procgraph.components.basic import register_model_spec
 
 class RawseedsCamFiles(Generator):
     ''' This block reads the filenames for the Rawseeds camera log.
@@ -14,7 +13,6 @@ class RawseedsCamFiles(Generator):
     '''
     block_config('dir', 'Directory containing the image files.')
     block_output('filename', 'Image filenames')
-    
     
     def init(self):
         dirname = self.config.dir
@@ -84,8 +82,6 @@ class RawseedsCamFiles(Generator):
         else:
             self.state.next_frame = k + 1
             
-register_block(RawseedsCamFiles)
-
 
 # Computes the variance
 register_model_spec("""

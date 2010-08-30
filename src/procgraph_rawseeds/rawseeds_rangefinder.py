@@ -1,7 +1,6 @@
 import numpy
 
 from procgraph.components.textlog import TextLog
-from procgraph.components.basic import register_block
 from procgraph  import block_output, block_config, block_alias
 
 
@@ -29,7 +28,4 @@ class RawseedsRangeFinder(TextLog):
         readings = numpy.array(map(float, elements[3:]))
         return timestamp, [('readings', readings)]
 
-
-register_block(RawseedsRangeFinder, 'RawseedsRF')
-
-
+ 

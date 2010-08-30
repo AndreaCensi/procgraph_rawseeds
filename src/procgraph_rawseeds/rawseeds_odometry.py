@@ -27,7 +27,9 @@ class RawseedsOdometry(TextLog):
 
 '''
     block_alias('RawseedsOdo')
+    
     block_config('file', 'Filename. If it ends with ``bz2`` it is treated as compressed.')
+    
     block_output('pose', 'x,y,theta')
     block_output('ticks_right')
     block_output('ticks_left')
@@ -66,9 +68,6 @@ class RawseedsOdometry(TextLog):
         
         return timestamp, signals
         
-        
-
-register_block(RawseedsOdometry, 'RawseedsOdo')
-
+         
 
         

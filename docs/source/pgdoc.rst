@@ -74,12 +74,12 @@ Routines for reading the data from the Rawseeds project.
 
 .. rst-class:: procgraph:block
 
-RawseedsCam
+``RawseedsCam``
 ------------------------------------------------------------
 This model reads the images of a Rawseed camera log.
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -99,7 +99,7 @@ Implemented in `/src/procgraph_rawseeds/rawseeds_camera.py <https://github.com/A
 
 .. rst-class:: procgraph:block
 
-RawseedsCamFiles
+``RawseedsCamFiles``
 ------------------------------------------------------------
 This block reads the filenames for the Rawseeds camera log. 
 
@@ -107,7 +107,7 @@ It is assumed that the files follow the regexp ``'(\w+)_(\d+)\.(\d+)\.png'``,
 that is, ``<LOGNAME>_<TIMESTAMP>.png``
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -133,7 +133,7 @@ Implemented in `/src/procgraph_rawseeds/rawseeds_camera.py <https://github.com/A
 
 .. rst-class:: procgraph:block
 
-RawseedsGPS
+``RawseedsGPS``
 ------------------------------------------------------------
 This block reads the GPS log from Rawseeds format. 
 
@@ -145,7 +145,7 @@ Example of GPS file format: ::
 We ignore the GPGST lines for now.
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -175,7 +175,7 @@ Implemented in `/src/procgraph_rawseeds/rawseeds_gps.py <https://github.com/Andr
 
 .. rst-class:: procgraph:block
 
-RawseedsHokuyo
+``RawseedsHokuyo``
 ------------------------------------------------------------
 This block reads a Hokuyo log in Rawseeds format. 
 
@@ -185,7 +185,7 @@ File format: ::
     R1..R681* Ranges [m]
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -211,7 +211,7 @@ Implemented in `/src/procgraph_rawseeds/rawseeds_hokuyo.py <https://github.com/A
 
 .. rst-class:: procgraph:block
 
-RawseedsOdo
+``RawseedsOdo``
 ------------------------------------------------------------
 Read an odometry log file in Rawseeds format. 
 
@@ -235,7 +235,7 @@ towards the front, X axis is parallel to the wheelbase and points
 towards the right wheel.
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -247,8 +247,6 @@ Configuration
 
 Output
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-- ``readings``: Range finder readings
 
 - ``pose``: x,y,theta
 
@@ -275,7 +273,7 @@ Implemented in `/src/procgraph_rawseeds/rawseeds_odometry.py <https://github.com
 
 .. rst-class:: procgraph:block
 
-RawseedsRF
+``RawseedsRF``
 ------------------------------------------------------------
 This block reads a range-finder log in Rawseeds format. 
 
@@ -287,7 +285,7 @@ File format: ::
     R1..R181 Ranges (zero padded to 181 ranges) [m]
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -313,7 +311,7 @@ Implemented in `/src/procgraph_rawseeds/rawseeds_rangefinder.py <https://github.
 
 .. rst-class:: procgraph:block
 
-camera_display
+``camera_display``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -326,7 +324,7 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/camera_display.pg <https:
 
 .. rst-class:: procgraph:block
 
-camera_expectation
+``camera_expectation``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -339,7 +337,7 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/camera_expectation.pg <ht
 
 .. rst-class:: procgraph:block
 
-camera_filters
+``camera_filters``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -352,7 +350,7 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/camera_filters.pg <https:
 
 .. rst-class:: procgraph:block
 
-camera_video
+``camera_video``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -365,7 +363,7 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/camera_video.pg <https://
 
 .. rst-class:: procgraph:block
 
-compression_test
+``compression_test``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -378,7 +376,7 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/compression_test.pg <http
 
 .. rst-class:: procgraph:block
 
-decode
+``decode``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -391,7 +389,7 @@ Implemented in `/src/procgraph_rawseeds/models/video_tests.pg <https://github.co
 
 .. rst-class:: procgraph:block
 
-gray_pipeline
+``gray_pipeline``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -404,7 +402,7 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/nearness.pg <https://gith
 
 .. rst-class:: procgraph:block
 
-master
+``master``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -417,7 +415,7 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/video_frame.pg <https://g
 
 .. rst-class:: procgraph:block
 
-rangefinder_display
+``rangefinder_display``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -430,12 +428,12 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/rangefinder_display.pg <h
 
 .. rst-class:: procgraph:block
 
-rawseeds_big_movie
+``rawseeds_big_movie``
 ------------------------------------------------------------
 Creates a big movie file displaying all data
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -453,7 +451,7 @@ Implemented in `/src/procgraph_rawseeds/models/rawseeds_big_movie.pg <https://gi
 
 .. rst-class:: procgraph:block
 
-rawseeds_display_all
+``rawseeds_display_all``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -466,7 +464,7 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/all.pg <https://github.co
 
 .. rst-class:: procgraph:block
 
-rawseeds_odometry
+``rawseeds_odometry``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -479,12 +477,12 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/rawseeds_odometry.pg <htt
 
 .. rst-class:: procgraph:block
 
-rawseeds_read_all
+``rawseeds_read_all``
 ------------------------------------------------------------
 A model that reads all data from a Rawseeds log, to check it can be read correctly.
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -502,12 +500,12 @@ Implemented in `/src/procgraph_rawseeds/models/rawseeds_read_all.pg <https://git
 
 .. rst-class:: procgraph:block
 
-rawseeds_read_all_small
+``rawseeds_read_all_small``
 ------------------------------------------------------------
 Reads the whole log to check that it does not contain errors.
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -525,12 +523,12 @@ Implemented in `/src/procgraph_rawseeds/models/rawseeds_read_all_small.pg <https
 
 .. rst-class:: procgraph:block
 
-rawseeds_read_camera
+``rawseeds_read_camera``
 ------------------------------------------------------------
 Reads the whole log to check that it does not contain errors.
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -548,12 +546,12 @@ Implemented in `/src/procgraph_rawseeds/models/rawseeds_read.pg <https://github.
 
 .. rst-class:: procgraph:block
 
-rawseeds_read_gps
+``rawseeds_read_gps``
 ------------------------------------------------------------
 Reads the GPS log to check that it does not contain errors.
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -571,12 +569,12 @@ Implemented in `/src/procgraph_rawseeds/models/rawseeds_read.pg <https://github.
 
 .. rst-class:: procgraph:block
 
-rawseeds_read_hokuyo
+``rawseeds_read_hokuyo``
 ------------------------------------------------------------
 Reads the whole log to check that it does not contain errors.
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -594,12 +592,12 @@ Implemented in `/src/procgraph_rawseeds/models/rawseeds_read.pg <https://github.
 
 .. rst-class:: procgraph:block
 
-rawseeds_read_sick
+``rawseeds_read_sick``
 ------------------------------------------------------------
 Reads the whole log to check that it does not contain errors.
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -617,12 +615,12 @@ Implemented in `/src/procgraph_rawseeds/models/rawseeds_read.pg <https://github.
 
 .. rst-class:: procgraph:block
 
-rawseeds_synchronized_camera
+``rawseeds_synchronized_camera``
 ------------------------------------------------------------
 Outputs the syncrhonized data of 3 cameras (omnidirectional, frontal, SVS_T) stitched together.
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -648,12 +646,12 @@ Implemented in `/src/procgraph_rawseeds/models/rawseeds_synchronized_camera.pg <
 
 .. rst-class:: procgraph:block
 
-rawseeds_synchronized_camera_test
+``rawseeds_synchronized_camera_test``
 ------------------------------------------------------------
 Tests the rawseeds_synchronized_camera model by writing out a movie.
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -671,7 +669,7 @@ Implemented in `/src/procgraph_rawseeds/models/rawseeds_synchronized_camera.pg <
 
 .. rst-class:: procgraph:block
 
-rawseeds_synchronized_laser
+``rawseeds_synchronized_laser``
 ------------------------------------------------------------
 This model reads and synchronizes the 4 laser sources in a Rawseeds log. 
 
@@ -683,7 +681,7 @@ The Hokuyo data is downsampled with :ref:`block:select`.
 All data is limited to 10fps using :ref:`block:fps_data_limit`.
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -713,14 +711,14 @@ Implemented in `/src/procgraph_rawseeds/models/rawseeds_synchronized_laser.pg <h
 
 .. rst-class:: procgraph:block
 
-rawseeds_synchronized_laser_plot
+``rawseeds_synchronized_laser_plot``
 ------------------------------------------------------------
 Displays the stream coming from :ref:`block:rawseeds_synchronized_laser`. 
 
 It assumes that ``hokuyo_downsample == 4``.
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -756,12 +754,12 @@ Implemented in `/src/procgraph_rawseeds/models/rawseeds_synchronized_laser.pg <h
 
 .. rst-class:: procgraph:block
 
-rawseeds_synchronized_laser_test
+``rawseeds_synchronized_laser_test``
 ------------------------------------------------------------
 Creates a display of the data output by :ref:`block:rawseeds_synchronized_laser`.
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -779,7 +777,7 @@ Implemented in `/src/procgraph_rawseeds/models/rawseeds_synchronized_laser.pg <h
 
 .. rst-class:: procgraph:block
 
-rawseedscam2con2der2video
+``rawseedscam2con2der2video``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -792,7 +790,7 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/tests.pg <https://github.
 
 .. rst-class:: procgraph:block
 
-rawseedscam2der2video
+``rawseedscam2der2video``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -805,7 +803,7 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/tests.pg <https://github.
 
 .. rst-class:: procgraph:block
 
-rawseedscam2gray2der2video
+``rawseedscam2gray2der2video``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -818,7 +816,7 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/tests.pg <https://github.
 
 .. rst-class:: procgraph:block
 
-rawseedscam2video
+``rawseedscam2video``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -831,12 +829,12 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/tests.pg <https://github.
 
 .. rst-class:: procgraph:block
 
-rf_display
+``rf_display``
 ------------------------------------------------------------
 Makes a plot of range finder data
 
 
-.. rst-class:: procgraph:parameters
+.. rst-class:: procgraph:config
 
 Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -856,7 +854,7 @@ Implemented in `/src/procgraph_rawseeds/models/rawseeds_big_movie.pg <https://gi
 
 .. rst-class:: procgraph:block
 
-svs_pipeline
+``svs_pipeline``
 ------------------------------------------------------------
 Pipeline for SVS data
 
@@ -887,7 +885,7 @@ Implemented in `/src/procgraph_rawseeds/models/rawseeds_big_movie.pg <https://gi
 
 .. rst-class:: procgraph:block
 
-test_dynamics
+``test_dynamics``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -900,7 +898,7 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/test_dynamic.pg <https://
 
 .. rst-class:: procgraph:block
 
-test_nearness
+``test_nearness``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -913,7 +911,7 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/nearness.pg <https://gith
 
 .. rst-class:: procgraph:block
 
-test_pose2commands
+``test_pose2commands``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -926,7 +924,7 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/odometry_vel.pg <https://
 
 .. rst-class:: procgraph:block
 
-testing_resize
+``testing_resize``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -939,7 +937,7 @@ Implemented in `/src/procgraph_rawseeds/models/to_sort/tests.pg <https://github.
 
 .. rst-class:: procgraph:block
 
-transcode
+``transcode``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source
@@ -952,7 +950,7 @@ Implemented in `/src/procgraph_rawseeds/models/video_tests.pg <https://github.co
 
 .. rst-class:: procgraph:block
 
-transcode_filter
+``transcode_filter``
 ------------------------------------------------------------
 
 .. rst-class:: procgraph:source

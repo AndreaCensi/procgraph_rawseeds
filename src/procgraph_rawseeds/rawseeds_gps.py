@@ -1,5 +1,4 @@
 from procgraph.components.textlog import TextLog
-from procgraph.components.basic import register_block
 
 from procgraph import block_config, block_output
 
@@ -15,6 +14,7 @@ class RawseedsGPS(TextLog):
     
     '''
     block_config('file', 'Filename. If it ends with ``bz2`` it is treated as compressed.')
+    
     block_output('latitude')
     block_output('longitude')
     block_output('altitude')
@@ -66,7 +66,4 @@ class RawseedsGPS(TextLog):
         
         return timestamp, output
 
-
-register_block(RawseedsGPS)
-
-
+ 
