@@ -1,7 +1,0 @@
-# Needs log=... on the command line
-
-|RawseedsCam dir=$log| -> |grayscale| -> gray
-
-
-    gray -> |expectation| -> |imshow|
-

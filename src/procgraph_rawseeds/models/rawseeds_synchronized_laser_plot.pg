@@ -1,0 +1,41 @@
+
+
+--- model rawseeds_synchronized_laser_plot
+''' Displays the stream coming from :ref:`block:rawseeds_synchronized_laser`. 
+
+    It assumes that ``hokuyo_downsample == 4``.
+    
+'''
+config width = 320 'Width of each display.'
+config height = 320 'Height of each display.'
+input y 'Data produced by :ref:`block:rawseeds_synchronized_laser`.'
+output rgb 'RGB image with the two plots side by side'
+
+|input name=y| --> y
+
+y --> |slice start=0 end=341| --> hokuyo
+y --> |slice start=342 end=703| --> sick
+
+
+sick --> |  display_sick:laser_display width=$width height=$height| --> rgb1
+hokuyo --> |display_hokuyo:laser_display width=$width height=$height| --> rgb2
+sick --> |derivative2| --> |organic_scale| --> sick_dot
+hokuyo --> |derivative2| --> |organic_scale| --> hokuyo_dot
+
+sick_dot --> |  display_sick_dot:laser_dot_display width=$width height=$height| --> rgb3
+hokuyo_dot --> |display_hokuyo_dot:laser_dot_display width=$width height=$height| --> rgb4
+
+
+rgb1,rgb2,rgb3,rgb4 --> |sync| --> |grid cols=2| --> |output name=out|
+
+# sick is 181, hokuyo/4 = 171, y has 704 readings in total
+hokuyo_groups = [{ indices: [0,170], theta: [-1.92,+1.92], color: 'r', origin: [0,0,0],  max_readings: 5}, { indices: [171,341], theta: [+1.22,+5.06], color: 'b', origin: [0,0,0], max_readings: 5}]
+
+
+sick_groups = [{ indices: [0,180], theta: [-1.57,+1.57], color: 'r', origin: [0,0,0]}, { indices: [161,361], theta: [+1.57,+4.71], color: 'b', origin: [0,0,0]}]
+
+display_hokuyo.groups =  $hokuyo_groups
+display_sick.groups = $sick_groups
+display_hokuyo_dot.groups =  $hokuyo_groups
+display_sick_dot.groups = $sick_groups
+
