@@ -15,7 +15,7 @@ import procgraph.components.pil
      frontal.dir = "${logdir}/FRONTAL"
 
 ######## Cameras
-|svs_t:RawseedsCam| --> |gray2rgb| --> |resize width=320| --> |text| --> svs_t
+|svs_t:RawseedsCam| --> |gray2rgb| --> |resize width=320| -->  svs_t
 |frontal:RawseedsCam| -->  frontal
 |omni:RawseedsCam| --> |resize width=480|->  omni
 
@@ -26,11 +26,11 @@ omni, frontal, svs_t --> |sync| -> |compose| --> y --> |output name=y|
     compose.width = 800
     compose.height = 480
     compose.positions = {omni: [0,0], frontal: [480,0], svs_t: [480,240]}
+      # 
+      # #
+      # 
+      # text.texts = [  {string: "Caltech", position: [315,205], size:30, halign: right, color: orange, bg: black, font: "Candara"  } ]
   
-    #
-    
-    text.texts = [  {string: "Caltech", position: [315,205], size:30, halign: right, color: orange, bg: black, font: "Candara"  } ]
-
    
    
 --- model rawseeds_synchronized_camera_test
