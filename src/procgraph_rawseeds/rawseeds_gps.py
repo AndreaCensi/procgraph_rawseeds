@@ -1,6 +1,6 @@
 from procgraph.components.textlog import TextLog
 
-from procgraph import block_config, block_output
+from procgraph import Block
 
 class RawseedsGPS(TextLog):
     ''' This block reads the GPS log from Rawseeds format. 
@@ -13,11 +13,11 @@ class RawseedsGPS(TextLog):
     We ignore the GPGST lines for now.
     
     '''
-    block_config('file', 'Filename. If it ends with ``bz2`` it is treated as compressed.')
+    Block.config('file', 'Filename. If it ends with ``bz2`` it is treated as compressed.')
     
-    block_output('latitude')
-    block_output('longitude')
-    block_output('altitude')
+    Block.output('latitude')
+    Block.output('longitude')
+    Block.output('altitude')
      
     
     def parse_format(self, line):

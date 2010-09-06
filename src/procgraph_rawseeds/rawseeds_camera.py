@@ -1,6 +1,6 @@
 import os, re
 
-from procgraph import Generator, block_output, block_config
+from procgraph import Generator, Block
 from procgraph.components.file_utils import expand_environment 
 from procgraph.components.basic import register_model_spec
 
@@ -11,8 +11,8 @@ class RawseedsCamFiles(Generator):
         that is, ``<LOGNAME>_<TIMESTAMP>.png``
     
     '''
-    block_config('dir', 'Directory containing the image files.')
-    block_output('filename', 'Image filenames')
+    Block.config('dir', 'Directory containing the image files.')
+    Block.output('filename', 'Image filenames')
     
     def init(self):
         dirname = self.config.dir
@@ -51,12 +51,10 @@ class RawseedsCamFiles(Generator):
         self.state.frames = frames
         self.state.next_frame = 0
 
-        # TODO: make sure we have only one signal in the dir?
-        self.set_config_default('name', signal_name)
         self.define_input_signals([])
-        self.define_output_signals([self.config.name])
+        self.define_output_signals(['filename'])
         
-        self.info("Camera log ready for %s" % self.config.name)
+        self.info("Camera log ready for %s" % dirname)
         
     def next_data_status(self):
         k = self.state.next_frame
