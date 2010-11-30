@@ -1,0 +1,46 @@
+--- model rawseeds_read_all
+''' A model that reads all data from a Rawseeds log, to check it can be read correctly. '''
+config logdir "Rawseeds log dir"
+config file   "HDF file to write to"
+import procgraph_rawseeds
+
+hokuyo_front.file = "${logdir}/HOKUYO_FRONT.csv.bz2"
+ hokuyo_rear.file = "${logdir}/HOKUYO_REAR.csv.bz2"
+  sick_front.file = "${logdir}/SICK_FRONT.csv.bz2"
+   sick_rear.file = "${logdir}/SICK_REAR.csv.bz2"
+
+       svs_t.dir = "${logdir}/SVS_T"
+       svs_r.dir = "${logdir}/SVS_R"
+       svs_l.dir = "${logdir}/SVS_L"
+        omni.dir = "${logdir}/OMNI"
+     frontal.dir = "${logdir}/FRONTAL"
+
+  odometry.file = "${logdir}/ODOMETRY_XYT.csv.bz2"
+
+
+######## Cameras
+|svs_t:RawseedsCam| --> svs_t
+|svs_r:RawseedsCam| --> svs_r
+|svs_l:RawseedsCam| --> svs_l
+|frontal:RawseedsCam|  --> frontal
+|omni:RawseedsCam|  --> omni
+
+######## Range finders
+|hokuyo_front:RawseedsHokuyo|  -> hokuyo_front
+| hokuyo_rear:RawseedsHokuyo|  -> hokuyo_rear
+|  sick_front:RawseedsRF|      -> sick_front
+|   sick_rear:RawseedsRF|      -> sick_rear
+
+######## Odometry
+|odometry:RawseedsOdo|         -> odometry
+
+import procgraph_hdf
+
+#hdfwrite.file = "${logdir}/everything.h5"
+hdfwrite.file = $file
+
+svs_t, svs_r, svs_l, frontal, omni, hokuyo_front, hokuyo_rear, sick_front, sick_rear --> |hdfwrite|
+# hokuyo_front, hokuyo_rear, sick_front, sick_rear --> |hdfwrite|
+
+
+
