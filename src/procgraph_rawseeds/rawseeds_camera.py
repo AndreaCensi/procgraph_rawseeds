@@ -51,8 +51,6 @@ class RawseedsCamFiles(Generator):
         self.state.frames = frames
         self.state.next_frame = 0
 
-        self.define_input_signals([])
-        self.define_output_signals(['filename'])
         
         self.info("Camera log ready for %s" % dirname)
         
@@ -87,8 +85,9 @@ register_model_spec("""
 '''This model reads the images of a Rawseed camera log.'''
 config dir    'Directory containing the images.' 
 config fps_limit = 100 'Limit the frames per second (default is disabled).'
+output images
 
-import procgraph.components.pil 
+import procgraph_pil
 
 |RawseedsCamFiles dir=$dir| --> |fps_data_limit fps=$fps_limit| --> filenames
 

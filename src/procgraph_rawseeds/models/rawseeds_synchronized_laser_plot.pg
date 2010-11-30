@@ -26,7 +26,7 @@ sick_dot --> |  display_sick_dot:laser_dot_display width=$width height=$height| 
 hokuyo_dot --> |display_hokuyo_dot:laser_dot_display width=$width height=$height| --> rgb4
 
 
-rgb1,rgb2,rgb3,rgb4 --> |sync| --> |grid cols=2| --> |output name=out|
+rgb1,rgb2,rgb3,rgb4 --> |sync| --> |grid cols=2| --> |output name=rgb|
 
 # sick is 181, hokuyo/4 = 171, y has 704 readings in total
 hokuyo_groups = [{ indices: [0,170], theta: [-1.92,+1.92], color: 'r', origin: [0,0,0],  max_readings: 5}, { indices: [171,341], theta: [+1.22,+5.06], color: 'b', origin: [0,0,0], max_readings: 5}]
