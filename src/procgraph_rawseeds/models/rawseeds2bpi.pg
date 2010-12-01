@@ -1,0 +1,41 @@
+--------- model rawseeds2bpi 
+""" Converts the data in a Rawseeds HDF log to a bootstrapping 
+    problem instance, synchronized tuples (y, y_dot, u).
+    
+    By default, it converts the RGB to grayscale (1d output).
+    This can be changed with the config ``filter``.
+    
+"""
+    
+config hdf                         " Input hdf file. "
+config file = "${hdf}.bpi"          " Output file (HDF log). "
+config y_filter = rgb2gray         " Final filter for y (before derivative). "
+config y_deriv_op = derivative2    " How to compute derivative. Default: 2-tap. "
+
+import procgraph_hdf
+
+# Extract 3 signals from the log
+
+|hdfread file=$hdf signals="svs_t,frontal,omni,odometry"| --> svs_t, frontal, omni, odometry
+    
+    # convert and compose the signals into one image
+    svs_t --> |gray2rgb| --> |resize width=320| -->  svs_t_
+    omni  --> |resize width=480| -->  omni_
+
+    omni_, frontal, svs_t_ --> |sync| -> |compose| --> |$y_filter| --> y 
+
+        compose.width = 800
+        compose.height = 480
+        compose.positions = {omni_: [0,0], frontal: [480,0], svs_t_: [480,240]}
+    
+    # compute derivative
+    
+    y --> |$y_deriv_op| --> y_dot
+    
+    # commands come from the odometry
+    odometry --> |fps_data_limit fps=30| --> |pose2commands| --> u
+    
+# synchronize and write everything
+y, y_dot, u --> |sync| --> |hdfwrite file=$file|
+
+

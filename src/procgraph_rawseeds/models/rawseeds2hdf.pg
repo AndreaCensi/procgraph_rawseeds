@@ -1,4 +1,4 @@
---- model rawseeds_read_all
+--- model rawseeds2hdf
 ''' A model that reads all data from a Rawseeds log, to check it can be read correctly. '''
 config logdir "Rawseeds log dir"
 config file   "HDF file to write to"
@@ -34,13 +34,17 @@ hokuyo_front.file = "${logdir}/HOKUYO_FRONT.csv.bz2"
 ######## Odometry
 |odometry:RawseedsOdo|         -> odometry
 
+######## GPS (partial)
+#|gps:RawseedsGPS| --> latitude, longitude, altitude
+#gps.file = "${logdir}/SICK_REAR.csv.bz2"
+
+
 import procgraph_hdf
 
-#hdfwrite.file = "${logdir}/everything.h5"
-hdfwrite.file = $file
+#svs_t, svs_r, svs_l, frontal, omni, hokuyo_front, hokuyo_rear, sick_front, sick_rear, odometry, latitude, longitude, altitude --> |hdfwrite file=$file|
 
-svs_t, svs_r, svs_l, frontal, omni, hokuyo_front, hokuyo_rear, sick_front, sick_rear --> |hdfwrite|
-# hokuyo_front, hokuyo_rear, sick_front, sick_rear --> |hdfwrite|
+svs_t, svs_r, svs_l, frontal, omni, hokuyo_front, hokuyo_rear, sick_front, sick_rear, odometry --> |hdfwrite file=$file|
+
 
 
 
