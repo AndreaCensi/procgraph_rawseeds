@@ -4,8 +4,8 @@ config logdir "Rawseeds log directory"
 output y "RGB data of the three camers stitched together."
 
 import procgraph_rawseeds
-import procgraph.components.cv 
-import procgraph.components.pil
+import procgraph_cv 
+import procgraph_pil
  
 
        svs_t.dir = "${logdir}/SVS_T"

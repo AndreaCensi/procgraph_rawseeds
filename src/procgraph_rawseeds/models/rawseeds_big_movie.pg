@@ -3,8 +3,8 @@
 config logdir "Rawseeds log directory"
 
 import procgraph_rawseeds
-import procgraph.components.cv 
-import procgraph.components.pil
+import procgraph_cv 
+import procgraph_pil
 
 
 hokuyo_front.file = "${logdir}/HOKUYO_FRONT.csv.bz2"
