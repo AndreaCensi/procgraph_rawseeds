@@ -1,5 +1,5 @@
-from procgraph.components.textlog import TextLog
 from procgraph import Block
+from procgraph.block_utils import TextLog
 
 
 class RawseedsOdometry(TextLog):

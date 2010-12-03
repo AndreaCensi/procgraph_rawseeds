@@ -1,6 +1,5 @@
-from procgraph.components.textlog import TextLog
-
 from procgraph import Block
+from procgraph.block_utils import TextLog
 
 class RawseedsGPS(TextLog):
     ''' This block reads the GPS log from Rawseeds format. 

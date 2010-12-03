@@ -1,9 +1,7 @@
 import numpy
 
-from procgraph.components.textlog import TextLog
-
-
 from procgraph import Block
+from procgraph.block_utils import TextLog
 
 class RawseedsHokuyo(TextLog):
     ''' This block reads a Hokuyo log in Rawseeds format. 

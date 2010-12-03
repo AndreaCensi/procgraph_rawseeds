@@ -1,8 +1,7 @@
 import os, re
 
-from procgraph import Generator, Block
-from procgraph.components.file_utils import expand_environment 
-from procgraph.components.basic import register_model_spec
+from procgraph import Generator, Block, register_model_spec
+from procgraph.block_utils import expand  
 
 class RawseedsCamFiles(Generator):
     ''' This block reads the filenames for the Rawseeds camera log.
@@ -16,7 +15,7 @@ class RawseedsCamFiles(Generator):
     
     def init(self):
         dirname = self.config.dir
-        dirname = expand_environment(dirname)
+        dirname = expand(dirname)
         
         if not os.path.exists(dirname):
             raise Exception('Non existent directory "%s".' % dirname)
