@@ -1,6 +1,10 @@
 --------- model rawseeds2bpi_frontal 
 """ Creates a BPI from the "frontal" stream in a Rawseeds log.
     
+    Example invocation: ::
+    
+        pg -m procgraph_rawseeds rawseeds2bpi_frontal hdf=rawseeds/hdf/Bicocca_2009-02-25a.h 
+   
 """
     
 config hdf                         " Input hdf file. "
