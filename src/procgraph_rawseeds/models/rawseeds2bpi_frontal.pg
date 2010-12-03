@@ -13,7 +13,7 @@ import procgraph_hdf
 
 # Extract 3 signals from the log
 
-|hdfread file=$hdf signals=frontal| --> frontal
+|hdfread file=$hdf signals="frontal,odometry"| --> frontal, odometry
     
     frontal  --> |resize width=$size height=$size| --> |$y_filter| --> y
     
