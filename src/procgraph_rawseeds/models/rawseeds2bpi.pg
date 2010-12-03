@@ -8,7 +8,7 @@
 """
     
 config hdf                         " Input hdf file. "
-config file = "${hdf}.bpi"          " Output file (HDF log). "
+config file = "${hdf}.bpi"         " Output file (HDF log). "
 config y_filter = rgb2gray         " Final filter for y (before derivative). "
 config y_deriv_op = derivative2    " How to compute derivative. Default: 2-tap. "
 
