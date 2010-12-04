@@ -24,8 +24,8 @@ class RawseedsRangeFinder(TextLog):
         """ returns a tuple (timestamp, array of (name, value) )"""
         elements = line.split(',')
         timestamp = float(elements[0])
-        num_readings = int(elements[1]) #@UnusedVariable
-        offset = float(elements[2])
+        #num_readings = int(elements[1]) 
+        #offset = float(elements[2]) 
         readings = numpy.array(map(float, elements[3:]))
         return timestamp, [('readings', readings)]
 

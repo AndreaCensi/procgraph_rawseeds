@@ -33,7 +33,7 @@ class RawseedsCamFiles(Generator):
         for filename in all_files:
             m = re.match(regexp, filename)
             if m:
-                signal_name = m.group(1)
+                # signal_name = m.group(1)
                 seconds = m.group(2)
                 fraction = m.group(3)
                 timestamp = float(seconds) + float('0.%s' % fraction)
@@ -78,7 +78,7 @@ class RawseedsCamFiles(Generator):
             self.state.next_frame = k + 1
             
 
-# Computes the variance
+# TODO: make separate file for this
 register_model_spec("""
 --- model RawseedsCam
 '''This model reads the images of a Rawseed camera log.'''
