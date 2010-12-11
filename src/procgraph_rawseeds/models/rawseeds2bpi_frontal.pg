@@ -11,22 +11,21 @@ config hdf                         " Input hdf file. "
 config file = "${hdf}.frontal.bpi" " Output file (HDF log). "
 config y_filter = rgb2gray         " Final filter for y (before derivative). "
 config y_deriv_op = derivative2    " How to compute derivative. Default: 2-tap. "
-config size = 100                  "Creates size x size output."
+config size = 100                  " Creates size x size output. "
 
 import procgraph_hdf
 
-# Extract 3 signals from the log
-
+''' Extract the signals from the log. '''
 |hdfread file=$hdf signals="frontal,odometry"| --> frontal, odometry
     
     frontal  --> |resize width=$size height=$size| --> |$y_filter| --> y
     
     y --> |$y_deriv_op| --> y_dot
     
-    # commands come from the odometry
+    ''' Commands come from the odometry. '''
     odometry --> |fps_data_limit fps=30| --> |pose2commands| --> u
     
-# synchronize and write everything
+''' Synchronize and write everything. '''
 y, y_dot, u --> |sync| --> |hdfwrite file=$file|
 
 

@@ -19,19 +19,20 @@ hokuyo_front.file = "${logdir}/HOKUYO_FRONT.csv.bz2"
 
              out = "${logdir}/rawseeds_big_movie.avi"
 
-######## Cameras
-|svs_t:RawseedsCam|
-|svs_r:RawseedsCam|
-|svs_l:RawseedsCam|
-|frontal:RawseedsCam| 
-   |omni:RawseedsCam| 
+''' Cameras '''
+    |svs_t:RawseedsCam|
+    |svs_r:RawseedsCam|
+    |svs_l:RawseedsCam|
+    |frontal:RawseedsCam| 
+    |omni:RawseedsCam| 
 
-######## Range finders
-|hokuyo_front:RawseedsHokuyo| 
-| hokuyo_rear:RawseedsHokuyo| 
-|  sick_front:RawseedsRF|     
-|   sick_rear:RawseedsRF|     
+''' Range finders '''
+    |hokuyo_front:RawseedsHokuyo| 
+    | hokuyo_rear:RawseedsHokuyo| 
+    |  sick_front:RawseedsRF|     
+    |   sick_rear:RawseedsRF|     
 
-######## Odometry
-|odometry:RawseedsOdo| 
+''' Odometry '''
+    |odometry:RawseedsOdo| 
+ 
  
