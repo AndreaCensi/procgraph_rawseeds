@@ -1,4 +1,4 @@
---------- model rawseeds2bpi 
+--------- model rawseeds2bpi_3cams 
 """ Converts the data in a Rawseeds HDF log to a bootstrapping 
     problem instance, synchronized tuples (y, y_dot, u).
     

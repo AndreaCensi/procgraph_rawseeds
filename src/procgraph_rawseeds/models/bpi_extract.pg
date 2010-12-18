@@ -1,0 +1,20 @@
+--- model bpi_extract
+''' 
+    Extracts part of a BPI.   
+
+    Written originally for extracting Sick data from joing Rawseeds log
+    containing also the Hokuyo data.
+'''
+
+config hdf       "HDF file containing a BPI."
+config file      "Output file."
+config start=0   "First index."
+config end=361   "Last index (inclusive)."
+
+ |log:hdfread file=$hdf signals="y,y_dot,u"| 
+ 
+ log.y     --> |slice start=$start end=$end| --> y
+ log.y_dot --> |slice start=$start end=$end| --> y_dot
+ 
+ y, y_dot, log.u --> |hdfwrite file=$file| 
+ 

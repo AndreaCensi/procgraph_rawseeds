@@ -1,0 +1,43 @@
+--------- model rawseeds2bpi_4lasers
+""" 
+    Converts the data in a Rawseeds HDF log to a bootstrapping 
+    problem instance (synchronized tuples (y, y_dot, u))
+    using the data from the 4 lasers.
+"""
+    
+config hdf                         " Input hdf file. "
+config file = "${hdf}.4lasers.bpi" " Output file (HDF log). "
+config fps = 12                    " Frequency limit on the data. Raw Hokuyo is 10, Sick is 76. (set 12 to get full 10hz) "
+config y_deriv_op = derivative2    " How to compute derivative. Default: 2-tap. "
+config hokuyo_downsample = 4       " Downsampling for Hokuyo (original resolution is 676/1024 rays). "
+
+import procgraph_hdf
+
+''' Extract the signals from the log. '''
+|log:hdfread file=$hdf signals="hokuyo_front,hokuyo_rear,sick_front,sick_rear,odometry"| 
+    
+''' Select spatial/temporal resolution for laser data. '''
+
+    ''' Hokuyo: limit fps and downsample. '''
+    log.hokuyo_front --> |fps_data_limit fps=$fps| \
+                     --> |select every=$hokuyo_downsample| --> hokuyo_front
+    log.hokuyo_rear  --> |fps_data_limit fps=$fps| \
+                     --> |select every=$hokuyo_downsample| --> hokuyo_rear
+                      
+    ''' Sick: limit fps; don't downsample. '''
+    log.sick_front   --> |fps_data_limit fps=$fps| --> sick_front 
+    log.sick_rear    --> |fps_data_limit fps=$fps| --> sick_rear 
+
+    ''' Synchronize the signals and join to get y. '''
+    sick_front, sick_rear, hokuyo_front, hokuyo_rear --> |sync| --> |join| --> y
+
+    ''' Derive the signal (default: 2-tap). '''
+    y --> |$y_deriv_op| --> y_dot
+
+''' The commands come from the odometry. '''
+log.odometry --> |fps_data_limit fps=30| --> |pose2commands| --> u
+    
+''' Synchronize and write everything. '''
+y, y_dot, u --> |sync| --> |hdfwrite file=$file|
+
+

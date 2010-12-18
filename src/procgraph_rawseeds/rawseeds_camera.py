@@ -49,7 +49,6 @@ class RawseedsCamFiles(Generator):
         
         self.state.frames = frames
         self.state.next_frame = 0
-
         
         self.info("Camera log ready for %s" % dirname)
         
