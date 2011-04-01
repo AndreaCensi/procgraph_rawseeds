@@ -1,5 +1,5 @@
 --- model rawseeds2hdf
-''' A model that reads all data from a Rawseeds log, to check it can be read correctly. '''
+''' Convert everything to HDF. '''
 config logdir "Rawseeds log dir"
 config file   "HDF file to write to"
 import procgraph_rawseeds

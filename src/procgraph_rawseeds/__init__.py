@@ -5,6 +5,7 @@ import rawseeds_camera
 import rawseeds_odometry
 import rawseeds_hokuyo 
 import rawseeds_gps
+import rawseeds_imu
 
 
 from procgraph import pg_add_this_package_models

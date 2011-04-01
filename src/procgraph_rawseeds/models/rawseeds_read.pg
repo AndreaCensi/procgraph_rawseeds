@@ -11,7 +11,6 @@ import procgraph_rawseeds
 |RawseedsGPS file=$log|
 
 
-
 ------------------------------- model rawseeds_read_sick
 """ Reads a Rawseeds Sick log to check that it does not contain errors. """
 config log "Rawseeds Sick log file (.csv or .csv.bz2)."
@@ -39,5 +38,14 @@ config dir "Directory containing the images."
 import procgraph_rawseeds
  
 |RawseedsCam dir=$dir|
+
+
+------------------------------- model rawseeds_read_imu
+""" Reads a Rawseeds IMU log to check that it does not contain errors. """
+config log "Rawseeds IMU log file (.csv or .csv.bz2)."
+
+import procgraph_rawseeds
+ 
+|RawseedsIMU file=$log| --> |info|
 
 
