@@ -1,8 +1,9 @@
 from setuptools import setup, find_packages
+
 setup(
     name="procgraph_rawseeds",
     version="1.0",
-    package_dir={'':'src'},
+    package_dir={'': 'src'},
     packages=find_packages(),
    
     # Project uses reStructuredText, so ensure that the docutils get

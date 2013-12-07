@@ -2,6 +2,9 @@ from procgraph import Block
 from procgraph.block_utils import TextLog
 
 
+__all__ = ['RawseedsOdometry']
+
+
 class RawseedsOdometry(TextLog):
     ''' Read an odometry log file in Rawseeds format.
     
