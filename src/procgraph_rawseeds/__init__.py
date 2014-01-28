@@ -1,11 +1,11 @@
 ''' Routines for reading the data from the Rawseeds project. '''
 
-import rawseeds_rangefinder 
-import rawseeds_camera 
-import rawseeds_odometry
-import rawseeds_hokuyo 
-import rawseeds_gps
-import rawseeds_imu
+from . import rawseeds_rangefinder
+from . import rawseeds_camera
+from . import rawseeds_odometry
+from . import rawseeds_hokuyo
+from . import rawseeds_gps
+from . import rawseeds_imu
 
 
 from procgraph import pg_add_this_package_models

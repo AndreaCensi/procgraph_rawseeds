@@ -3,6 +3,7 @@ import numpy
 from procgraph import Block
 from procgraph.block_utils import TextLog
 
+
 class RawseedsRangeFinder(TextLog):
     ''' This block reads a range-finder log in Rawseeds format. 
     
