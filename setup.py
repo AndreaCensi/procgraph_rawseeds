@@ -16,7 +16,7 @@ setup(
 
     # metadata for upload to PyPI
     author="Andrea Censi",
-    author_email="andrea@cds.caltech.edu",
+    author_email="censi@mit.edu",
     description="ProcGraph blocks to read the data from the Rawseeds project.",
     license="LGPL",
     keywords="procgraph rawseeds robot robotics logs camera rangefinder laser",
